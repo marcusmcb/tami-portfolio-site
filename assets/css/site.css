@@ -1,0 +1,147 @@
+:root {
+  --accent: #ed5f98;
+  --text: #111;
+  --muted: rgba(0, 0, 0, 0.45);
+  --link: #111;
+  --max-width: 1040px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  background: #fff;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.site-header .header-row {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.site-title a { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: baseline;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+
+main {
+  padding-top: 8px;
+}
+
+h1, h2 {
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.muted { color: var(--muted); }
+
+.lede {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.sublede {
+  font-size: 18px;
+  margin: 0 0 18px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.media-placeholder {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.project {
+  margin: 0 0 26px;
+}
+
+.project h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.project p {
+  margin: 0 0 10px;
+}
+
+.site-footer {
+  margin-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 14px;
+}
+
+.partial-error {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 12px 16px;
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
