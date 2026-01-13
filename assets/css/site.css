@@ -354,6 +354,14 @@ h2 {
   gap: 14px;
 }
 
+.footer-home {
+  text-decoration: none;
+}
+
+.footer-home:hover {
+  text-decoration: underline;
+}
+
 .partial-error {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.6);
