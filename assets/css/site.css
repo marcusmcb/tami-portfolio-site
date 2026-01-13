@@ -3,7 +3,8 @@
   --text: #111;
   --muted: rgba(0, 0, 0, 0.45);
   --link: #111;
-  --max-width: 1040px;
+  /* Approx 1" side padding on desktop, clamped for small screens */
+  --page-pad-x: clamp(16px, 1in, 96px);
 }
 
 * { box-sizing: border-box; }
@@ -20,6 +21,12 @@ body {
   background: #fff;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 a {
   color: var(--link);
   text-decoration: none;
@@ -30,9 +37,10 @@ a:hover {
 }
 
 .container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px 16px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px var(--page-pad-x);
 }
 
 .site-header .header-row {
@@ -109,6 +117,46 @@ h2 {
 
 .project {
   margin: 0 0 26px;
+}
+
+.project .thumb {
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.gallery img {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .project h3 {

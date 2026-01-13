@@ -13,6 +13,7 @@
     <main class="container">
       <div class="grid-2">
         <section>
+          <img src="assets/images/tami-blue.jpg" alt="Portrait of Tami McBride" loading="lazy" style="margin-bottom: 16px;" />
           <h2>Leadership</h2>
           <p><span style="color: var(--accent); font-weight: 600;">Leading my team through growth</span></p>
           <p>
@@ -75,11 +76,21 @@
           <h2>Highlights</h2>
           <p><small>Culture Champion Award</small><br />I'm honored to have received the Culture Champion Award and so lucky to have such an amazing team that campaigned on my behalf.</p>
 
-          <div class="media-placeholder">TODO media: YouTube embed (legacy used https://www.youtube.com/embed/uoWfovPqdyo)</div>
+          <div class="embed" aria-label="Culture Champion Award video">
+            <iframe
+              src="https://www.youtube.com/embed/uoWfovPqdyo"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
           <p class="muted">At the time of this recording, the Experience Organization had nearly 700 people with Service Now approaching nearly 18,000 employees (and growing rapidly).</p>
 
           <p><small>Interview: Design Leadership</small><br />This Week in Veritone: Inside Veritone Design with Tami McBride</p>
-          <div class="media-placeholder">TODO audio: (legacy MP3 link from Squarespace)</div>
+          <audio controls preload="none" style="width: 100%;">
+            <source src="https://static1.squarespace.com/static/512728bee4b08376dc01ee9c/t/612c1148a31834048040946f/1630277987610/Inside+Veritone+-+Design+Thinking+with+Tami+-+Podcast.mp3/original/Inside+Veritone+-+Design+Thinking+with+Tami+-+Podcast.mp3" type="audio/mpeg" />
+          </audio>
 
           <p><small>Recommendations</small><br />You will find generous <a href="https://www.linkedin.com/in/tamimcbride/" target="_blank" rel="noopener noreferrer">recommendations</a> from company leaders, colleagues, my team members, and clients on my LinkedIn profile.</p>
 
@@ -107,9 +118,17 @@
         </aside>
       </div>
 
-      <div style="margin-top: 28px;" class="media-placeholder">
-        TODO image gallery: this page had a Cargo gallery with many {image ...} entries.
-      </div>
+      <section style="margin-top: 28px;">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <img src="assets/images/team-fun2.jpg" alt="Team photo" loading="lazy" />
+          <img src="assets/images/team-fun3.jpg" alt="Team photo" loading="lazy" />
+          <img src="assets/images/team-fun7.jpg" alt="Team photo" loading="lazy" />
+          <img src="assets/images/large-group.jpg" alt="Team photo" loading="lazy" />
+          <img src="assets/images/team-collabera1.jpg" alt="Team photo" loading="lazy" />
+          <img src="assets/images/team-collabera4.jpg" alt="Team photo" loading="lazy" />
+        </div>
+      </section>
     </main>
 
     <div id="site-footer"></div>
