@@ -4,24 +4,18 @@ Source for Tami McBride's design portfolio site, www.tamimcbride.com
 
 ### What this repo contains
 
-This is a simple static rebuild of the old Cargo-hosted site using exported HTML fragments saved in [legacy-code/](legacy-code).
+This repo contains an Astro-based static site (SEO-friendly, no runtime includes) plus the original HTML rebuild for reference.
 
-The new site lives at the repo root:
+Current site (Astro):
 
-- [index.html](index.html) (Work)
-- [cv.html](cv.html)
-- [leadership.html](leadership.html)
-- [about.html](about.html)
+- Pages live under [src/pages/](src/pages)
+- Shared layout/components live under [src/layouts/](src/layouts) and [src/components/](src/components)
+- Static files (CSS/images) are served from [public/](public)
 
-Shared header/footer are in:
+Legacy reference (old static HTML rebuild):
 
-- [partials/header.html](partials/header.html)
-- [partials/footer.html](partials/footer.html)
-
-Styling and JS:
-
-- [assets/css/site.css](assets/css/site.css)
-- [assets/js/includes.js](assets/js/includes.js) (loads partials)
+- Old HTML pages and runtime includes live under [legacy/](legacy)
+- Cargo export fragments preserved in [legacy/legacy-code/](legacy/legacy-code)
 
 ### Fonts
 
@@ -29,23 +23,22 @@ The Cargo site uses a webfont called **ROM Variable**. This rebuild references t
 
 ### How to run locally
 
-Because the header/footer are loaded with `fetch()`, opening the HTML files via `file://` will usually not work. Run a local web server instead.
+1. `npm install`
+2. `npm run dev`
+3. Open the printed URL (usually `http://localhost:4321`)
 
-If you have Node.js installed:
+Build a static deployable site:
 
-1. `npx serve .`
-2. Open the printed URL (usually `http://localhost:3000`)
+1. `npm run build`
+2. Output is in `dist/`
 
-If you have Python installed:
-
-1. `python -m http.server 8000`
-2. Open `http://localhost:8000`
+Firebase Hosting note: configure Hosting to deploy the `dist/` folder.
 
 ### Adding images/media
 
 Cargo exports use placeholders like `{image 25}` and `{audio ...}`. In the rebuilt pages those are currently represented as "TODO" placeholders.
 
-- Put images in [assets/images/](assets/images)
-- Replace the placeholders with real `<img src="assets/images/..." ...>` or embeds as you supply the media files
+- Put images in [public/assets/images/](public/assets/images)
+- Use absolute paths in pages like `<img src="/assets/images/..." ...>` so they work on every route
 
 Marcus McBride, 2026
