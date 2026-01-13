@@ -23,6 +23,10 @@ Styling and JS:
 - [assets/css/site.css](assets/css/site.css)
 - [assets/js/includes.js](assets/js/includes.js) (loads partials)
 
+### Fonts
+
+The Cargo site uses a webfont called **ROM Variable**. This rebuild references that font via `@font-face` URLs hosted on `https://type.cargo.site` (no font files are stored in this repo). If the font can’t be loaded for any reason, the site falls back to system UI fonts.
+
 ### How to run locally
 
 Because the header/footer are loaded with `fetch()`, opening the HTML files via `file://` will usually not work. Run a local web server instead.
