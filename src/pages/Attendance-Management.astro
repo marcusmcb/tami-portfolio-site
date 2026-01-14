@@ -1,0 +1,165 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Attendance Management — Tami McBride"
+  description="An app to encourage name and face recognition for educators."
+>
+  <main class="container project-detail">
+    <header class="project-detail__header">
+      <h2>Attendance Management</h2>
+      <p class="muted">An app to encourage name and face recognition for educators.</p>
+      <img
+        class="project-detail__hero"
+        src="/assets/images/ipad-smallclass-copy.png"
+        alt="Attendance Management — Names & Faces tablet app"
+        loading="lazy"
+      />
+    </header>
+
+    <section class="project-detail__section">
+      <h2>Challenge</h2>
+      <p>
+        As an educator, I struggle to quickly learn and remember the names of my students at the beginning of the school year/session.
+      </p>
+
+      <h2>Solution</h2>
+      <p>
+        Many schools have learning and student management systems, but most of those systems are not geared to help you quickly learn and remember student
+        names.
+      </p>
+      <p>
+        Names &amp; Faces is a tablet app that uses proven memorization techniques to help you remember student names faster.
+      </p>
+
+      <p><strong>My Role</strong><br />Lead Designer, Part-time Project Manager</p>
+      <p><strong>Team + Stakeholders</strong><br />CTO, 2 Developers, educators (K-College)</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Research</h2>
+
+      <p><strong>Educator Survey</strong></p>
+      <ul>
+        <li>Participants included educators from elementary school through college</li>
+        <li>Questions centered around how educators learn the names of their students and how long it takes to learn those names</li>
+        <li>
+          Results were used as a tool in the design process to better understand memory techniques that work specifically for educators
+        </li>
+      </ul>
+
+      <p><strong>Color can be impactful: Red &amp; Orange have special powers</strong></p>
+      <ul>
+        <li>
+          Boosts performance on detail-oriented tasks such as memory retrieval by as much as 31% when compared to blue
+        </li>
+        <li>
+          Warm tones, such as red and orange, have been found to enhance attention and memory compared to cooler colors
+        </li>
+      </ul>
+      <p class="muted">Resources: Science Daily | NCBI</p>
+
+      <p><strong>Improve your ability to remember names in 4 simple steps</strong></p>
+      <ol>
+        <li>Concentrate: actively listen to the person</li>
+        <li>Repeat: use the name immediately and repeat regularly</li>
+        <li>Associate: make connections using word association</li>
+        <li>Review: go over names at the end of the day</li>
+      </ol>
+      <p class="muted">Resources: Wittcom.com | Forbes | CNBC</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Design</h2>
+
+      <p class="muted">Early sketches and IA exploration.</p>
+
+      <div class="carousel" data-carousel aria-label="Attendance Management design slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/sketch1.jpg" aria-label="Open slide 1">
+            <img src="/assets/images/sketch1.jpg" alt="Sketch 1" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/sketch2.jpg" aria-label="Open slide 2">
+            <img src="/assets/images/sketch2.jpg" alt="Sketch 2" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/sketch3.jpg" aria-label="Open slide 3">
+            <img src="/assets/images/sketch3.jpg" alt="Sketch 3" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/sitemap.png" aria-label="Open slide 4">
+            <img src="/assets/images/sitemap.png" alt="Sitemap" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+
+      <p style="margin-top: 18px;" class="muted">Screen mocks.</p>
+
+      <div class="carousel" data-carousel aria-label="Attendance Management screen mock slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button
+            class="carousel__slide"
+            type="button"
+            data-carousel-slide
+            data-full-src="/assets/images/mock-smallclass.jpg"
+            aria-label="Open slide 1"
+          >
+            <img src="/assets/images/mock-smallclass.jpg" alt="Small class mock" loading="lazy" />
+          </button>
+          <button
+            class="carousel__slide"
+            type="button"
+            data-carousel-slide
+            data-full-src="/assets/images/mock-largeclass.jpg"
+            aria-label="Open slide 2"
+          >
+            <img src="/assets/images/mock-largeclass.jpg" alt="Large class mock" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Features</h2>
+
+      <ul>
+        <li>Interactive seating chart keeps names and faces in view</li>
+        <li>Take roll with names and faces to match those in their seats for quick and repetitive recognition</li>
+        <li>
+          Student Profile allows you to enter Learning Level, mark a student chatty or disruptive, enter notes, and review attendance
+        </li>
+        <li>Seating Chart builder</li>
+        <li>Auto-assign seats based off Learning Level, chattiness, and if the student tends to be disruptive</li>
+        <li>Switch between Chart View and augmented reality Desk View</li>
+        <li>First Day Student Check-In mode for large classes (students confirm their info and check in for the class)</li>
+        <li>Bluetooth-enabled check-in (auto check-in when you get to class)</li>
+        <li>Google Classroom and student learning systems integration</li>
+      </ul>
+
+      <p style="margin-top: 14px;">
+        <a href="/Work">← Back to Work</a>
+      </p>
+    </section>
+
+    <div class="image-modal" hidden data-image-modal>
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">
+          ←
+        </button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    </div>
+  </main>
+</SiteLayout>

@@ -395,6 +395,14 @@ h2 {
   border: 1px solid var(--border);
 }
 
+.project-detail__image {
+  width: 100%;
+  display: block;
+  margin-top: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
 .project-detail__section {
   margin-top: 22px;
 }

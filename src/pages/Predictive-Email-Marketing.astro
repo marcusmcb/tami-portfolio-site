@@ -1,0 +1,115 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Predictive Email Marketing — Tami McBride"
+  description="Take the guesswork out of email marketing using machine learning and analytics based on consumer behavior."
+>
+  <main class="container project-detail">
+    <header class="project-detail__header">
+      <h2>Predictive Email Marketing</h2>
+      <p class="muted">
+        Take the guesswork out of email marketing using machine learning and analytics based on consumer behavior.
+      </p>
+      <img
+        class="project-detail__hero"
+        src="/assets/images/all-promos-thumb.png"
+        alt="Predictive Email Marketing — promo collage thumbnail"
+        loading="lazy"
+      />
+    </header>
+
+    <section class="project-detail__section">
+      <h2>Challenge</h2>
+      <p>Rethink the product strategy and user experience.</p>
+
+      <h2>Solution</h2>
+      <p>Using a task-based approach, I was able to create a more streamlined experience.</p>
+
+      <p><strong>My Role</strong><br />Lead Product Designer</p>
+      <p><strong>Team + Stakeholders</strong><br />CEO, CTO, Project Manager, 3 Developers, UI Designer</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Discovery</h2>
+      <p>
+        Working with the client, I was able to quickly understand the business vision and goals. The UI needed a lot of love to bring their vision of
+        simplicity and power to the user, however.
+      </p>
+
+      <div class="carousel" data-carousel aria-label="Predictive Email Marketing discovery slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/_sitemap.png" aria-label="Open slide 1">
+            <img src="/assets/images/_sitemap.png" alt="Discovery sitemap" loading="lazy" />
+          </button>
+          <button
+            class="carousel__slide"
+            type="button"
+            data-carousel-slide
+            data-full-src="/assets/images/_delivery_-_history__1_.png"
+            aria-label="Open slide 2"
+          >
+            <img src="/assets/images/_delivery_-_history__1_.png" alt="Discovery — delivery history" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/_campaigns.png" aria-label="Open slide 3">
+            <img src="/assets/images/_campaigns.png" alt="Discovery — campaigns" loading="lazy" />
+          </button>
+          <button
+            class="carousel__slide"
+            type="button"
+            data-carousel-slide
+            data-full-src="/assets/images/_dashboard__1_.png"
+            aria-label="Open slide 4"
+          >
+            <img src="/assets/images/_dashboard__1_.png" alt="Discovery — dashboard" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Design</h2>
+
+      <div class="carousel" data-carousel aria-label="Predictive Email Marketing design slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/all-promos.png" aria-label="Open slide 1">
+            <img src="/assets/images/all-promos.png" alt="Design — promo collage" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/u562.png" aria-label="Open slide 2">
+            <img src="/assets/images/u562.png" alt="Design screen 1" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/u563.png" aria-label="Open slide 3">
+            <img src="/assets/images/u563.png" alt="Design screen 2" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+
+      <p style="margin-top: 14px;">
+        <a href="/Work">← Back to Work</a>
+      </p>
+    </section>
+
+    <div class="image-modal" hidden data-image-modal>
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">
+          ←
+        </button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    </div>
+  </main>
+</SiteLayout>

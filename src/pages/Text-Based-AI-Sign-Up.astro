@@ -1,0 +1,152 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Text-Based AI Sign-Up — Tami McBride"
+  description="Exploration on alternative registration and ecommerce paths using artificial intelligence and text messaging."
+>
+  <main class="container project-detail">
+    <header class="project-detail__header">
+      <h2>Text-Based AI Sign-Up</h2>
+      <p class="muted">
+        Exploration on alternative registration and ecommerce paths using artificial intelligence and text messaging.
+      </p>
+      <img class="project-detail__hero" src="/assets/images/design1.jpg" alt="Text-Based AI Sign-Up visual design option" loading="lazy" />
+    </header>
+
+    <section class="project-detail__section">
+      <h2>Challenge</h2>
+      <p>
+        As a customer, I want to create my personalized mental health profile without downloading a mobile app or sitting in front of the computer for a
+        long period of time.
+      </p>
+
+      <h2>Solution</h2>
+      <p>Use text messaging, machine learning, and AI to interview the customer.</p>
+
+      <p><strong>My Role</strong><br />Lead Designer, Part-time Project Manager</p>
+      <p><strong>Team + Stakeholders</strong><br />Founder/CEO, 2 Developers, Data Architect, UI Designer</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Research</h2>
+      <p>Research was lightweight and based on target demo assumptions for this proof of concept.</p>
+
+      <p><strong>Interviews</strong></p>
+      <ul>
+        <li>3 women + 2 men, ages 25-44, living in the greater Los Angeles area</li>
+        <li>
+          Inquired on their comfort-level in speaking with “someone” about private information over text and how they take care of their mental health
+        </li>
+      </ul>
+
+      <p><strong>What I learned…</strong></p>
+      <ul>
+        <li>Many don’t take the time to think about their mental health, let alone practice habits to promote good mental health</li>
+        <li>Most said they wouldn’t take the time to fill out a questionnaire more than 3 minutes long, just not a priority</li>
+        <li>Most were comfortable in answering questions as time permitted</li>
+      </ul>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px;">
+        <div>
+          <p><strong>Meet Mical</strong></p>
+          <ul>
+            <li>iPhone user</li>
+            <li>Current customer</li>
+            <li>32 yrs old</li>
+            <li>Works full time</li>
+            <li>Married</li>
+            <li>Children ages 2 and 4</li>
+            <li>Struggles with making time for herself</li>
+          </ul>
+          <p>
+            Mical signs up for a personalized profile on the website, but decides to bypass the self evaluation because she doesn’t have time at the
+            moment. She chooses to have the company text her to continue the process.
+          </p>
+        </div>
+        <img
+          class="project-detail__image"
+          src="/assets/images/mical.jpg"
+          alt="Persona photo for Mical"
+          loading="lazy"
+          style="max-width: 220px; border-radius: 999px; justify-self: start;"
+        />
+      </div>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Design</h2>
+
+      <div class="carousel" data-carousel aria-label="Text-based sign-up design slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/IMG_0102.jpg" aria-label="Open slide 1">
+            <img src="/assets/images/IMG_0102.jpg" alt="Text conversation flow — screen 1" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/IMG_0103.jpg" aria-label="Open slide 2">
+            <img src="/assets/images/IMG_0103.jpg" alt="Text conversation flow — screen 2" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/IMG_0104.jpg" aria-label="Open slide 3">
+            <img src="/assets/images/IMG_0104.jpg" alt="Text conversation flow — screen 3" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/IMG_0105.jpg" aria-label="Open slide 4">
+            <img src="/assets/images/IMG_0105.jpg" alt="Text conversation flow — screen 4" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+
+      <img
+        class="project-detail__image"
+        src="/assets/images/sms-wireframes.png"
+        alt="Wireframes for the text-based sign-up flow"
+        loading="lazy"
+        style="margin-top: 16px;"
+      />
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Visual Design</h2>
+
+      <h3 style="margin: 0; font-size: 18px;">Option 1: Personalized, friendly, vibrant, and simple</h3>
+      <ul>
+        <li>Customer is taken to this screen after clicking the “Let’s get started” link</li>
+        <li>Tap Let’s Continue button and the next question slides into view</li>
+        <li>Tap the speaker button to answer audibly (keyboard option also available)</li>
+        <li>The charts update as the customer answers questions</li>
+        <li>Tap one of the 6 facets to edit those settings manually</li>
+        <li>Swipe down to view content</li>
+      </ul>
+      <img class="project-detail__image" src="/assets/images/design1.jpg" alt="Visual design option 1" loading="lazy" />
+
+      <h3 style="margin: 18px 0 0; font-size: 18px;">Option 2: A bit safer design style, while still capturing the brand</h3>
+      <ul>
+        <li>Customer is taken to this screen after clicking the “Let’s get started” link</li>
+        <li>Tap the Refine Your Results button to enter settings for each facet manually</li>
+        <li>Swipe down to view content</li>
+        <li>Content cards use color to coordinate with each facet</li>
+        <li>Three actions are associated with each card: listen to audio content and music, watch videos, read articles</li>
+      </ul>
+      <img class="project-detail__image" src="/assets/images/design2.jpg" alt="Visual design option 2" loading="lazy" />
+
+      <p style="margin-top: 14px;">
+        <a href="/Work">← Back to Work</a>
+      </p>
+    </section>
+
+    <div class="image-modal" hidden data-image-modal>
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">←</button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    </div>
+  </main>
+</SiteLayout>
