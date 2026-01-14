@@ -84,4 +84,4 @@ These are not local files you need to add unless you want to self-host them.
 
 - Podcast MP3 referenced by the legacy Cargo export (if you want to self-host, download it and serve from `assets/`)
   - URL: https://static1.squarespace.com/static/512728bee4b08376dc01ee9c/t/612c1148a31834048040946f/1630277987610/Inside+Veritone+-+Design+Thinking+with+Tami+-+Podcast.mp3/original/Inside+Veritone+-+Design+Thinking+with+Tami+-+Podcast.mp3
-  - Legacy page: [legacy-code/leadership.html](legacy-code/leadership.html)
+  - Legacy page: [leadership.html](leadership.html)

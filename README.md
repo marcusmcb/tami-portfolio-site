@@ -15,7 +15,7 @@ Current site (Astro):
 Legacy reference (old static HTML rebuild):
 
 - Old HTML pages and runtime includes live under [legacy/](legacy)
-- Cargo export fragments preserved in [legacy/legacy-code/](legacy/legacy-code)
+
 
 ### Fonts
 
