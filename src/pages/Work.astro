@@ -1,0 +1,78 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const projects = [
+  {
+    title: 'Design Leadership: Evolving a Team',
+    imageSrc: '/assets/images/Tami-port-uxteampreso-2.png',
+    imageAlt: 'A UX Revolution — Design Leadership',
+    href: '/Design-Leadership-Evolving-a-Team',
+  },
+  {
+    title: 'Recruiting Platform',
+    imageSrc: '/assets/images/Find-Candidates---thumb.jpg',
+    imageAlt: 'Recruiting Platform',
+    href: '/Recruiting-Platform',
+  },
+  {
+    title: 'Smart Integrations',
+    imageSrc: '/assets/images/collabera_tile.png',
+    imageAlt: 'Smart Integrations',
+    href: '#',
+  },
+  {
+    title: 'Text-Based AI Sign-Up',
+    imageSrc: '/assets/images/design1.jpg',
+    imageAlt: 'Text-Based AI Sign-Up',
+    href: '#',
+  },
+  {
+    title: 'Attendance Management',
+    imageSrc: '/assets/images/ipad-smallclass-thumb.png',
+    imageAlt: 'Attendance Management',
+    href: '#',
+  },
+  {
+    title: 'Predictive Email Marketing',
+    imageSrc: '/assets/images/predictive_email.png',
+    imageAlt: 'Predictive Email Marketing',
+    href: '#',
+  },
+  {
+    title: 'PetMatch',
+    imageSrc: '/assets/images/petmatch_tile.jpg',
+    imageAlt: 'PetMatch',
+    href: '#',
+  },
+  {
+    title: 'Redesign: CareerBliss.com',
+    imageSrc: '/assets/images/cb2.jpg',
+    imageAlt: 'Redesign: CareerBliss.com',
+    href: '#',
+  },
+  {
+    title: 'Redesign: KBB.com',
+    imageSrc: '/assets/images/home1-thumb.jpg',
+    imageAlt: 'Redesign: KBB.com',
+    href: '#',
+  },
+] as const;
+---
+
+<SiteLayout title="Tami McBride — Work" description="Selected work by Tami McBride.">
+  <main class="container work-page">
+    <h2>Work</h2>
+
+    <section class="work-grid" aria-label="Work projects">
+      {projects.map((p) => (
+        <article class="work-card">
+          {/* Links/filters will be wired up next. */}
+          <a class="work-card__link" href={p.href} aria-label={p.title}>
+            <img class="work-card__image" src={p.imageSrc} alt={p.imageAlt} loading="lazy" />
+            <h3 class="work-card__title">{p.title}</h3>
+          </a>
+        </article>
+      ))}
+    </section>
+  </main>
+</SiteLayout>

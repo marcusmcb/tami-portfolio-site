@@ -16,8 +16,25 @@ const { title, description } = Astro.props;
 
     <link rel="preconnect" href="https://type.cargo.site" crossorigin />
     <link rel="stylesheet" href="/assets/css/site.css" />
+
+    <script>
+      (() => {
+        const key = 'theme';
+        const getSystem = () => (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        let theme = null;
+        try {
+          const saved = localStorage.getItem(key);
+          theme = saved === 'dark' || saved === 'light' ? saved : null;
+        } catch {
+          theme = null;
+        }
+        document.documentElement.dataset.theme = theme ?? getSystem();
+      })();
+    </script>
   </head>
   <body>
     <slot />
+    <script src="/assets/js/theme-toggle.js" defer></script>
+    <script src="/assets/js/carousel-modal.js" defer></script>
   </body>
 </html>

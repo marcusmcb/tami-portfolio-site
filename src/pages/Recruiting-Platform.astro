@@ -1,0 +1,207 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Recruiting Platform — Tami McBride"
+  description="Manage jobs, auto-match qualified candidates, and manage client relationships through this all-in-one recruiting platform."
+>
+  <main class="container project-detail">
+    <header class="project-detail__header">
+      <h2>Recruiting Platform</h2>
+      <p class="muted">
+        Manage jobs, auto-match qualified candidates, and manage client relationships through this all-in-one recruiting platform.
+      </p>
+      <p>
+        <a
+          href="https://docs.google.com/presentation/d/1XsjTq9kOfUkx31HfjGoEjMfpap681WvPye_0APEnvSg/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Case Study Deep Dive
+        </a>
+      </p>
+      <img class="project-detail__hero" src="/assets/images/Find-Candidates---thumb.jpg" alt="Recruiting Platform thumbnail" loading="lazy" />
+    </header>
+
+    <section class="project-detail__section">
+      <h2>Vision + Strategy</h2>
+
+      <p><strong>Product Vision</strong></p>
+      <p>
+        Explored and defined through a workshop with stakeholders and selected users, the Product Vision drove design decisions.
+      </p>
+      <p>
+        <strong>Spades Product Vision</strong><br />
+        Provide timely and valuable information to our recruiters so they can make informed business decisions and take action.
+      </p>
+
+      <p><strong>Design Strategy</strong></p>
+      <p>I explored design strategy through:</p>
+      <ul>
+        <li>Competitive analysis</li>
+        <li>Surveys</li>
+        <li>Workshop with stakeholders and selected users</li>
+      </ul>
+      <p>
+        The Design Strategy was defined and finalized as a team in the Workshop where we also set priorities and the start of a loose roadmap.
+        <a href="https://drive.google.com/file/d/1MQ3OFHiLF4ebDNJjuExfzDPR0U7EEvBO/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          The Design Strategy Blueprint
+        </a>
+        (AKA “The Blueprint”) was used often throughout the project to bring clarity to our vision and scope.
+        For a deeper dive, visit the
+        <a
+          href="https://docs.google.com/presentation/d/1XsjTq9kOfUkx31HfjGoEjMfpap681WvPye_0APEnvSg/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          full case study
+        </a>
+        .
+      </p>
+
+      <p><strong>Guiding Design Principles</strong></p>
+      <ul>
+        <li>Design with intention and purpose - limit distractions and use context</li>
+        <li>Work where they work - Information made available wherever our users are</li>
+        <li>Digital First - Bring offline activities into the digital space whenever possible</li>
+      </ul>
+
+      <p>
+        As an impactful example of “Work where they work,” I designed integrated tools to help the users work smarter from wherever they were on the web
+        through Outlook and Chrome extensions - Outlook, LinkedIn, GitHub, Behance, etc. This enabled the users to access the most current information on a
+        candidate or client within seconds rather than minutes, which increased engagement, user satisfaction, and productivity.
+      </p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Research</h2>
+
+      <p><strong>Interviews + Observational Research</strong></p>
+      <ul>
+        <li>8 users: 3 recruiters, 2 account managers, and 3 hybrid users (account manager + recruiter or “full desk”)</li>
+        <li>Inquired about their day from the time they wake up until they go to bed</li>
+        <li>I aimed to get a general understanding on how they work in and outside the office, their goals, what’s important to them, and what drives them</li>
+        <li>Watched how they worked with other software to keep their business organized</li>
+        <li>Listened to how they approached phone calls and how they juggled taking notes and sharing information with candidates and clients</li>
+      </ul>
+
+      <p><strong>Understanding Our Users</strong></p>
+      <ul>
+        <li>This is a sales-oriented business - keep the application quick and snappy to easily get to the information within 1-2 clicks.</li>
+        <li>Highly competitive atmosphere where users are driven more by “winning” than the actual dollar (money was a close second driver, however)</li>
+        <li>The fastest recruiter with the best candidate wins. This speaks to the need for immediacy and a fast system</li>
+      </ul>
+
+      <p><strong>Workshops and Feedback Sessions</strong></p>
+      <p>
+        I used this time to record ideas and gain clarity from the business and users and to confirm design assumptions through user feedback.
+      </p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Lessons Learned</h2>
+
+      <p><strong>Data Display: Card vs. Data Table</strong></p>
+      <p>
+        When you are scanning through hundreds (maybe thousands?) of candidates a day, displaying that data in a card view slowed the users down
+        considerably. Quickly moving their eyes down a column of data was much faster to compare many candidates within seconds rather than having to jump
+        their gaze from one card to the next across the screen.
+      </p>
+      <p><strong>SOLUTION</strong><br />For large data sets, a data table was used for faster scanability. For smaller data sets (&lt;20), cards could be used to organize in a workflow design pattern (much like Kanban).</p>
+
+      <p><strong>Quick Access to Data: Work Where They Work</strong></p>
+      <p>
+        Account Managers, Recruiters, and Sourcers spend much of their time in their email (in this case, Outlook), LinkedIn, GitHub, and other platforms
+        to find talent and surface new business opportunities. The business has rules to follow so that a candidate or business partner aren’t contacted
+        many times by different people in the organization, which keeps the brand from becoming tainted. To honestly follow those rules was cumbersome.
+        Searching for those contacts required the user to jump between the 3rd party platform and internal system and took many minutes (if they performed
+        the task at all).
+      </p>
+      <p>
+        <strong>SOLUTION</strong><br />
+        I designed a Chrome plugin and Outlook plugin which directly connected with the internal system and provided context to the user in seconds rather
+        than minutes.
+        <a href="/Smart-Integrations">Smart integrations</a>
+        for recruiters and account managers allowed them to view, take action, and jump directly into the Collabera systems.
+      </p>
+
+      <p>
+        Spades is a full-desk (account manager + recruiter) recruiting platform supporting over 2,500 professionals with their business goals through
+        research-based features that include:
+      </p>
+      <ul>
+        <li>Quickly create and auto-post jobs to 200+ job boards</li>
+        <li>Find and auto-match candidates from internal systems and 3rd party integrated sources</li>
+        <li>Manage applicants throughout the hiring process</li>
+        <li>Smart integrations with Chrome and Outlook plugins</li>
+        <li>Business development and client relationship management</li>
+        <li>Email marketing</li>
+      </ul>
+
+      <p><strong>Results</strong></p>
+      <ul>
+        <li>
+          Time on key tasks reduced greatly
+          <ul>
+            <li>Viewing Candidate or Client activity reduced to less than 10 seconds from over 6 minutes</li>
+            <li>Creating and posting to over 200 job boards in 3 minutes rather than 3 days</li>
+            <li>Comparing qualified candidates takes less than 2 minutes rather than over 15 minutes</li>
+          </ul>
+        </li>
+        <li>Onboarding/training decreased by 117%</li>
+        <li>Gamification increased engagement by 60%</li>
+        <li>
+          Due to the overwhelming success of the user experience, all systems throughout the company now use the Spades Design System, decreasing
+          development and training efforts and increasing user acceptance
+        </li>
+      </ul>
+
+      <p><strong>My Role</strong><br />Design Strategist, Lead Designer &amp; UX Director</p>
+      <p><strong>Team + Stakeholders</strong><br />CTO, Project Manager, 6 Developers, Data Architect, VP of Direct Hire Recruiting, Account Managers, Recruiters, and Sourcers</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Design</h2>
+      <div class="carousel" data-carousel aria-label="Recruiting Platform design carousel">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/recruiting-platform-slide-01.jpg" aria-label="Open slide 1">
+            <img src="/assets/images/recruiting-platform-slide-01.jpg" alt="Recruiting Platform slide 1" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/recruiting-platform-slide-02.jpg" aria-label="Open slide 2">
+            <img src="/assets/images/recruiting-platform-slide-02.jpg" alt="Recruiting Platform slide 2" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/recruiting-platform-slide-03.jpg" aria-label="Open slide 3">
+            <img src="/assets/images/recruiting-platform-slide-03.jpg" alt="Recruiting Platform slide 3" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/recruiting-platform-slide-04.jpg" aria-label="Open slide 4">
+            <img src="/assets/images/recruiting-platform-slide-04.jpg" alt="Recruiting Platform slide 4" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/recruiting-platform-slide-05.jpg" aria-label="Open slide 5">
+            <img src="/assets/images/recruiting-platform-slide-05.jpg" alt="Recruiting Platform slide 5" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+
+      <p style="margin-top: 14px;">
+        <a href="/Work">← Back to Work</a>
+      </p>
+    </section>
+
+    <div class="image-modal" hidden data-image-modal>
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Recruiting Platform image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">←</button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    </div>
+  </main>
+</SiteLayout>
