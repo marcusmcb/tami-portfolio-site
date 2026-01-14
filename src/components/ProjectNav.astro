@@ -1,0 +1,29 @@
+---
+import { workProjects } from '../data/workProjects';
+
+type Props = {
+  currentHref: string;
+  workHref?: string;
+};
+
+const { currentHref, workHref = '/Work' } = Astro.props;
+
+const count = workProjects.length;
+const currentIndex = workProjects.findIndex((p) => p.href === currentHref);
+const safeIndex = currentIndex >= 0 ? currentIndex : 0;
+
+const prev = workProjects[(safeIndex - 1 + count) % count];
+const next = workProjects[(safeIndex + 1) % count];
+---
+
+<nav class="project-nav" aria-label="Project navigation">
+  <a class="project-nav__prev" href={prev.href} aria-label={`Previous project: ${prev.title}`}>
+    ← {prev.title}
+  </a>
+
+  <a class="project-nav__work" href={workHref} aria-label="Back to Work">Back to Work</a>
+
+  <a class="project-nav__next" href={next.href} aria-label={`Next project: ${next.title}`}>
+    {next.title} →
+  </a>
+</nav>

@@ -1,60 +1,62 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { workProjects } from '../data/workProjects';
+
 
 const projects = [
   {
-    title: 'Design Leadership: Evolving a Team',
+    title: workProjects[0].title,
     imageSrc: '/assets/images/Tami-port-uxteampreso-2.png',
     imageAlt: 'A UX Revolution — Design Leadership',
-    href: '/Design-Leadership-Evolving-a-Team',
+    href: workProjects[0].href,
   },
   {
-    title: 'Recruiting Platform',
+    title: workProjects[1].title,
     imageSrc: '/assets/images/Find-Candidates---thumb.jpg',
     imageAlt: 'Recruiting Platform',
-    href: '/Recruiting-Platform',
+    href: workProjects[1].href,
   },
   {
-    title: 'Smart Integrations',
+    title: workProjects[2].title,
     imageSrc: '/assets/images/collabera_tile.png',
     imageAlt: 'Smart Integrations',
-    href: '/Smart-Integrations',
+    href: workProjects[2].href,
   },
   {
-    title: 'Text-Based AI Sign-Up',
+    title: workProjects[3].title,
     imageSrc: '/assets/images/design1.jpg',
     imageAlt: 'Text-Based AI Sign-Up',
-    href: '/Text-Based-AI-Sign-Up',
+    href: workProjects[3].href,
   },
   {
-    title: 'Attendance Management',
+    title: workProjects[4].title,
     imageSrc: '/assets/images/ipad-smallclass-thumb.png',
     imageAlt: 'Attendance Management',
-    href: '/Attendance-Management',
+    href: workProjects[4].href,
   },
   {
-    title: 'Predictive Email Marketing',
+    title: workProjects[5].title,
     imageSrc: '/assets/images/predictive_email.png',
     imageAlt: 'Predictive Email Marketing',
-    href: '/Predictive-Email-Marketing',
+    href: workProjects[5].href,
   },
   {
-    title: 'PetMatch',
+    title: workProjects[6].title,
     imageSrc: '/assets/images/petmatch_tile.jpg',
     imageAlt: 'PetMatch',
-    href: '/PetMatch',
+    href: workProjects[6].href,
   },
   {
-    title: 'Redesign: CareerBliss.com',
+    title: workProjects[7].title,
     imageSrc: '/assets/images/cb2.jpg',
     imageAlt: 'Redesign: CareerBliss.com',
-    href: '/Redesign-CareerBliss-com',
+    href: workProjects[7].href,
   },
   {
-    title: 'Redesign: KBB.com',
+    title: workProjects[8].title,
     imageSrc: '/assets/images/home1-thumb.jpg',
     imageAlt: 'Redesign: KBB.com',
-    href: '/Redesign-KBB-com',
+    href: workProjects[8].href,
   },
 ] as const;
 ---

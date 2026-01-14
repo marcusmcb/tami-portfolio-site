@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectNav from '../components/ProjectNav.astro';
 ---
 
 <SiteLayout
@@ -93,9 +94,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
       </div>
 
-      <p style="margin-top: 14px;">
-        <a href="/Work">← Back to Work</a>
-      </p>
+      <ProjectNav currentHref="/Predictive-Email-Marketing" />
     </section>
 
     <div class="image-modal" hidden data-image-modal>

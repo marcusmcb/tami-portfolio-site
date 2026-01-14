@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectNav from '../components/ProjectNav.astro';
 ---
 
 <SiteLayout
@@ -175,9 +176,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         </div>
       </div>
 
-      <p style="margin-top: 14px;">
-        <a href="/Work">← Back to Work</a>
-      </p>
+      <ProjectNav currentHref="/Redesign-CareerBliss-com" />
     </section>
 
     <div class="image-modal" hidden data-image-modal>

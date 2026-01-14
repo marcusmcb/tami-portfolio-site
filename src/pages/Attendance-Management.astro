@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectNav from '../components/ProjectNav.astro';
 ---
 
 <SiteLayout
@@ -143,9 +144,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         <li>Google Classroom and student learning systems integration</li>
       </ul>
 
-      <p style="margin-top: 14px;">
-        <a href="/Work">← Back to Work</a>
-      </p>
+      <ProjectNav currentHref="/Attendance-Management" />
     </section>
 
     <div class="image-modal" hidden data-image-modal>

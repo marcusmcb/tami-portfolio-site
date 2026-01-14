@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectNav from '../components/ProjectNav.astro';
 ---
 
 <SiteLayout
@@ -127,9 +128,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         loading="lazy"
       />
 
-      <p style="margin-top: 14px;">
-        <a href="/Work">← Back to Work</a>
-      </p>
+      <ProjectNav currentHref="/Smart-Integrations" />
     </section>
 
     <div class="image-modal" hidden data-image-modal>
