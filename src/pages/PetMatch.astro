@@ -1,0 +1,152 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="PetMatch — Tami McBride"
+  description="Website dedicated to matching humans to their perfect pet and connecting them to the pet community services and events."
+>
+  <main class="container project-detail">
+    <header class="project-detail__header">
+      <h2>PetMatch</h2>
+      <p class="muted">
+        Website dedicated to matching humans to their perfect pet and connecting them to the pet community services and events.
+      </p>
+      <img class="project-detail__hero" src="/assets/images/petmatch1.jpg" alt="PetMatch project hero" loading="lazy" />
+    </header>
+
+    <section class="project-detail__section">
+      <h2>Challenge</h2>
+      <p>Connecting forever families to adoptable pets in local shelters</p>
+
+      <h2>Solution</h2>
+      <p>
+        With millions of animals awaiting adoption in shelters and foster homes, PetMatch makes it easier to connect pets to their humans.
+      </p>
+
+      <p><strong>My Role</strong><br />Lead Designer</p>
+      <p><strong>Team + Stakeholders</strong><br />CPO, 2 Developers, Rescue organizations, people looking for pets</p>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Research</h2>
+
+      <p><strong>Interviews</strong></p>
+      <ul>
+        <li>3 rescue organizations (2 coordinators and 1 foster volunteer)</li>
+        <li>Inquired on how they determine good fits for their rescues</li>
+      </ul>
+
+      <p><strong>Online Poll</strong></p>
+      <p>
+        Conducted an informal online poll on the decision-making process on selecting a pet (process, goals, and requirements)
+      </p>
+
+      <p><strong>What I learned…</strong></p>
+      <ul>
+        <li>Many people research online for specific pets without realizing they may be more inclined to a completely different animal</li>
+        <li>Similar websites fall short on guiding people through the process</li>
+        <li>Adopting a pet is a highly emotional and confusing experience</li>
+      </ul>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px;">
+        <div>
+          <p><strong>Meet Lauren</strong></p>
+          <p>
+            For the first approach, I created a lightweight persona, Lauren, to guide my design decisions.
+          </p>
+          <p>
+            Lauren is a mother of three boys, all under the age of 7, who have been asking for a pet for quite some time. She and her husband have decided
+            it’s time for a family pet but aren’t sure what makes sense for their family.
+          </p>
+        </div>
+        <img
+          class="project-detail__image"
+          src="/assets/images/lauren.jpg"
+          alt="Persona photo for Lauren"
+          loading="lazy"
+          style="max-width: 240px; border-radius: 999px; justify-self: start;"
+        />
+      </div>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Design</h2>
+
+      <div class="carousel" data-carousel aria-label="PetMatch design slides">
+        <button class="carousel__control" type="button" data-carousel-prev aria-label="Previous slide" title="Previous">←</button>
+
+        <div class="carousel__track" data-carousel-track>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/pm1.jpg" aria-label="Open slide 1">
+            <img src="/assets/images/pm1.jpg" alt="PetMatch screen" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/pm1-quiz.jpg" aria-label="Open slide 2">
+            <img src="/assets/images/pm1-quiz.jpg" alt="PetMatch quiz screen" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/pm2.jpg" aria-label="Open slide 3">
+            <img src="/assets/images/pm2.jpg" alt="PetMatch listing screen" loading="lazy" />
+          </button>
+          <button class="carousel__slide" type="button" data-carousel-slide data-full-src="/assets/images/pm4.jpg" aria-label="Open slide 4">
+            <img src="/assets/images/pm4.jpg" alt="PetMatch details screen" loading="lazy" />
+          </button>
+        </div>
+
+        <button class="carousel__control" type="button" data-carousel-next aria-label="Next slide" title="Next">→</button>
+      </div>
+    </section>
+
+    <section class="project-detail__section">
+      <h2>Process</h2>
+
+      <p><strong>Research</strong></p>
+      <ul>
+        <li>Conducted an informal online poll</li>
+        <li>Interviews</li>
+        <li>Competitive Analysis</li>
+      </ul>
+
+      <p><strong>Create Design Goals</strong></p>
+      <ul>
+        <li>Create an experience that speaks to the emotional bond between a pet and their humans</li>
+        <li>Make it simple to determine which pet is right for the prospective pet parent</li>
+        <li>Guide the human through the process of pet adoption online and offline</li>
+        <li>Showcase other pet connection opportunities to promote pet adoption (secondary goal)</li>
+      </ul>
+
+      <p><strong>Design the Experience</strong></p>
+      <ul>
+        <li>Brainstorm ideas with users</li>
+        <li>Create a high-level sitemap, scenarios, and user workflows (iterate)</li>
+        <li>Sketch and design wireframes; prototype for usability testing, if necessary (iterate)</li>
+        <li>Create the visual design and overall language (iterate)</li>
+      </ul>
+
+      <!-- The live page references {image 30} (pm-vd.jpg) here. That file is not currently in public/assets/images. -->
+      <img
+        class="project-detail__image"
+        src="/assets/images/petmatch_tile.jpg"
+        alt="PetMatch process visual"
+        loading="lazy"
+        style="margin-top: 16px;"
+      />
+
+      <p style="margin-top: 14px;">
+        <a href="/Work">← Back to Work</a>
+      </p>
+    </section>
+
+    <div class="image-modal" hidden data-image-modal>
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">
+          ←
+        </button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    </div>
+  </main>
+</SiteLayout>

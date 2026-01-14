@@ -11,6 +11,27 @@
     return Math.max(min, Math.min(max, n));
   }
 
+  function createModal() {
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.hidden = true;
+    modal.setAttribute('data-image-modal', '');
+    modal.innerHTML = `
+      <button class="image-modal__backdrop" type="button" data-image-modal-close aria-label="Close image"></button>
+      <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="image-modal__close" type="button" data-image-modal-close aria-label="Close image" title="Close">×</button>
+
+        <button class="image-modal__nav image-modal__nav--prev" type="button" data-image-modal-prev aria-label="Previous image" title="Previous">←</button>
+        <button class="image-modal__nav image-modal__nav--next" type="button" data-image-modal-next aria-label="Next image" title="Next">→</button>
+
+        <img class="image-modal__img" data-image-modal-img alt="" />
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    return modal;
+  }
+
   function initCarousel(carousel) {
     const track = qs(carousel, '[data-carousel-track]');
     const prev = qs(carousel, '[data-carousel-prev]');
@@ -49,7 +70,7 @@
   }
 
   function initModal() {
-    const modal = document.querySelector('[data-image-modal]');
+    const modal = document.querySelector('[data-image-modal]') || createModal();
     const modalImg = modal ? qs(modal, '[data-image-modal-img]') : null;
 
     if (!modal || !modalImg) return null;
@@ -163,30 +184,50 @@
       if (!(target instanceof Element)) return;
 
       const slideButton = target.closest('[data-carousel-slide]');
-      if (!slideButton) return;
 
-      const fullSrc = slideButton.getAttribute('data-full-src');
-      const img = slideButton.querySelector('img');
-      const alt = img ? img.getAttribute('alt') : '';
+      // 1) Carousel behavior (existing): clicking a carousel slide opens with nav.
+      if (slideButton) {
+        const fullSrc = slideButton.getAttribute('data-full-src');
+        const img = slideButton.querySelector('img');
+        const alt = img ? img.getAttribute('alt') : '';
 
+        if (!fullSrc) return;
+
+        event.preventDefault();
+
+        const carousel = slideButton.closest('[data-carousel]');
+        const slides = carousel
+          ? qsa(carousel, '[data-carousel-slide]').map((btn) => {
+              const src = btn.getAttribute('data-full-src') || '';
+              const btnImg = btn.querySelector('img');
+              const btnAlt = btnImg ? btnImg.getAttribute('alt') || '' : '';
+              return { src, alt: btnAlt };
+            })
+          : [];
+
+        const index = slides.findIndex((s) => s.src === fullSrc);
+        const state = slides.length ? { slides, index: clamp(index, 0, slides.length - 1) } : null;
+
+        modal.open(fullSrc, alt || '', state);
+        return;
+      }
+
+      // 2) Non-carousel single images: clicking opens the same modal (no nav).
+      const img = target.closest('img');
+      if (!img) return;
+
+      // Never intercept carousel images.
+      if (img.closest('[data-carousel-slide]')) return;
+
+      // Only enable zoom for intentional “content” images.
+      const isZoomable = img.matches('.thumb, .project-detail__hero, .project-detail__image');
+      if (!isZoomable) return;
+
+      const fullSrc = img.getAttribute('data-full-src') || img.currentSrc || img.getAttribute('src') || '';
       if (!fullSrc) return;
 
       event.preventDefault();
-
-      const carousel = slideButton.closest('[data-carousel]');
-      const slides = carousel
-        ? qsa(carousel, '[data-carousel-slide]').map((btn) => {
-            const src = btn.getAttribute('data-full-src') || '';
-            const btnImg = btn.querySelector('img');
-            const btnAlt = btnImg ? btnImg.getAttribute('alt') || '' : '';
-            return { src, alt: btnAlt };
-          })
-        : [];
-
-      const index = slides.findIndex((s) => s.src === fullSrc);
-      const state = slides.length ? { slides, index: clamp(index, 0, slides.length - 1) } : null;
-
-      modal.open(fullSrc, alt || '', state);
+      modal.open(fullSrc, img.getAttribute('alt') || '', null);
     });
   }
 

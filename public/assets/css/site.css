@@ -109,6 +109,11 @@ a:hover {
   justify-content: space-between;
 }
 
+.thumb,
+.project-detail__hero,
+.project-detail__image {
+  cursor: zoom-in;
+}
 .site-title {
   margin: 0;
   font-size: 34px;
@@ -412,12 +417,38 @@ h2 {
   padding-left: 18px;
 }
 
+.project-detail__two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .project-detail__two-col {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+}
+
 /* Carousel (Recruiting Platform slides) */
 .carousel {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
   align-items: center;
+}
+
+.carousel--solo {
+  grid-template-columns: 1fr;
+}
+
+.carousel--solo .carousel__control {
+  display: none;
+}
+
+.carousel--solo .carousel__track {
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
 }
 
 .carousel__control {
