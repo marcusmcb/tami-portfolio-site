@@ -21,7 +21,7 @@ const { title, description } = Astro.props;
       (() => {
         const key = 'theme';
         const getSystem = () => (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        let theme = null;
+        let theme: 'dark' | 'light' | null = null;
         try {
           const saved = localStorage.getItem(key);
           theme = saved === 'dark' || saved === 'light' ? saved : null;
