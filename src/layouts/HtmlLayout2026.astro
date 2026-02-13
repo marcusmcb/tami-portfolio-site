@@ -30,6 +30,11 @@ const { title, description, lang = 'en' } = Astro.props;
     </script>
 
     <style is:global>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
       /* Mobile theme toggle: visible when sidebar is off-canvas */
       .theme-toggle-fab {
         position: fixed;
