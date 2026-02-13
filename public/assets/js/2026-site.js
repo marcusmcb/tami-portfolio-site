@@ -1,21 +1,28 @@
 function initTheme() {
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
   const html = document.documentElement;
 
-  let currentTheme = 'dark';
+  const themeToggles = document.querySelectorAll('[data-theme-toggle], #themeToggle');
+  const themeIcons = document.querySelectorAll('[data-theme-icon], #themeIcon');
+
+  let currentTheme = html.getAttribute('data-theme') || 'dark';
   try {
-    currentTheme = localStorage.getItem('theme') || 'dark';
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      currentTheme = storedTheme;
+    }
   } catch {
     // ignore
   }
 
   html.setAttribute('data-theme', currentTheme);
-  updateThemeIcon(themeIcon, currentTheme);
+  updateThemeIcons(themeIcons, currentTheme);
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const activeTheme = html.getAttribute('data-theme') || 'light';
+  themeToggles.forEach((toggle) => {
+    if (!toggle || toggle.__themeToggleBound) return;
+    toggle.__themeToggleBound = true;
+
+    toggle.addEventListener('click', () => {
+      const activeTheme = html.getAttribute('data-theme') || 'dark';
       const nextTheme = activeTheme === 'light' ? 'dark' : 'light';
       html.setAttribute('data-theme', nextTheme);
       try {
@@ -23,14 +30,17 @@ function initTheme() {
       } catch {
         // ignore
       }
-      updateThemeIcon(themeIcon, nextTheme);
+      updateThemeIcons(themeIcons, nextTheme);
     });
-  }
+  });
 }
 
-function updateThemeIcon(themeIcon, theme) {
-  if (!themeIcon) return;
-  themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+function updateThemeIcons(themeIcons, theme) {
+  if (!themeIcons || !themeIcons.length) return;
+  themeIcons.forEach((icon) => {
+    if (!icon) return;
+    icon.textContent = theme === 'light' ? '🌙' : '☀️';
+  });
 }
 
 function initSmoothScroll() {

@@ -9,7 +9,7 @@ const { title, description, lang = 'en' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,18 +19,51 @@ const { title, description, lang = 'en' } = Astro.props;
     <script is:inline>
       (function () {
         try {
-          var theme = localStorage.getItem('theme') || 'dark';
-          document.documentElement.setAttribute('data-theme', theme);
+          var storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark' || storedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', storedTheme);
+          }
         } catch (e) {
           // ignore
         }
       })();
     </script>
 
+    <style is:global>
+      /* Mobile theme toggle: visible when sidebar is off-canvas */
+      .theme-toggle-fab {
+        position: fixed;
+        top: max(1rem, env(safe-area-inset-top));
+        right: max(1rem, env(safe-area-inset-right));
+        z-index: 1000;
+        width: 44px;
+        height: 44px;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      @media (min-width: 1025px) {
+        .theme-toggle-fab {
+          display: none;
+        }
+      }
+    </style>
+
     <slot name="head" />
   </head>
   <body>
     <slot />
+
+    <button class="theme-toggle-fab" type="button" data-theme-toggle aria-label="Toggle theme">
+      <span data-theme-icon aria-hidden="true">☀️</span>
+    </button>
 
     <script src="/assets/js/2026-site.js" defer></script>
   </body>
