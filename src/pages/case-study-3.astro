@@ -54,6 +54,21 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
             padding: 0;
             box-sizing: border-box;
         }
+
+        img,
+        svg,
+        video,
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p,
+        a,
+        li,
+        blockquote {
+            overflow-wrap: anywhere;
+        }
         
         html {
             scroll-behavior: smooth;
