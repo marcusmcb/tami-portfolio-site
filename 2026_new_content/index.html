@@ -1,15 +1,13 @@
----
-import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
----
-
-<HtmlLayout2026
-  title="Tami McBride — AI Design Leadership"
-    description="Senior design leader specializing in AI-native experience strategy. 20+ years building teams and systems that turn AI ambition into trusted, adopted products."
-  
->
-  <Fragment slot="head">
-        <style is:global>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tami McBride — AI Design Leadership</title>
+    <meta name="description" content="Senior design leader specializing in AI-native experience strategy. 20+ years building teams and systems that turn AI ambition into trusted, adopted products.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         
         :root {
             --bg-primary: #FEFEFE;
@@ -828,9 +826,9 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
             }
         }
     </style>
-  </Fragment>
-
-  <div class="app-container">
+</head>
+<body>
+    <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo-container">
@@ -843,7 +841,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                 <a href="#work">Work</a>
                 <a href="#speaking">Speaking</a>
                 <a href="#contact">Contact</a>
-                <a href="/2026/Tami_McBride_-_Design_Leadership_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                <a href="Tami_McBride_-_Design_Leadership_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </nav>
             <div class="theme-toggle-wrapper">
                 <button class="theme-toggle" id="themeToggle">
@@ -864,12 +862,12 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                             <h1>Leading intelligent experience design that understands people</h1>
                             <p class="lead">I'm a design leader who builds teams and systems that turn AI ambition into trustworthy, adopted products. 20+ years of strategic leadership across enterprise AI, platforms, and complex workflows.</p>
                             <div class="cta-buttons">
-                                <a href="/2026/Tami_McBride_-_Design_Leadership_Resume.pdf" target="_blank" class="btn btn-primary" download>Download Resume</a>
+                                <a href="Tami_McBride_-_Design_Leadership_Resume.pdf" target="_blank" class="btn btn-primary" download>Download Resume</a>
                                 <a href="#work" class="btn btn-secondary">View Work</a>
                             </div>
                         </div>
                         <div class="hero-image-wrapper">
-                            <img src="/2026/tami.jpg" alt="Tami McBride" class="hero-image">
+                            <img src="tami.jpg" alt="Tami McBride" class="hero-image">
                         </div>
                     </div>
                 </div>
@@ -957,7 +955,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                 
                 <div class="case-studies-grid">
                     <!-- Case Study 1 -->
-                    <a href="/case-study-1" class="case-study-card">
+                    <a href="case-study-1.html" class="case-study-card">
                         <h3>Founding & Scaling the AI Platform Design Organization</h3>
                         <p class="case-study-subtitle">Building the system that builds the product</p>
                         <p class="case-study-preview">
@@ -978,7 +976,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                     </a>
 
                     <!-- Case Study 2 -->
-                    <a href="/case-study-2" class="case-study-card">
+                    <a href="case-study-2.html" class="case-study-card">
                         <h3>Defining Enterprise AI Experience Strategy & Governance</h3>
                         <p class="case-study-subtitle">Making AI trustworthy by design, not by review</p>
                         <p class="case-study-preview">
@@ -999,7 +997,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                     </a>
 
                     <!-- Case Study 3 -->
-                    <a href="/case-study-3" class="case-study-card">
+                    <a href="case-study-3.html" class="case-study-card">
                         <h3>Building AI Design Enablement at Scale</h3>
                         <p class="case-study-subtitle">Scaling capability beyond the core team</p>
                         <p class="case-study-preview">
@@ -1029,7 +1027,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                 </div>
                 <div class="speaking-grid">
                     <div class="speaking-card">
-                        <img src="/2026/speak-k24.jpeg" alt="Speaking at ServiceNow Knowledge" class="speaking-image">
+                        <img src="speak-k24.jpeg" alt="Speaking at ServiceNow Knowledge" class="speaking-image">
                         <div class="speaking-content">
                             <p class="speaking-event">ServiceNow Knowledge 2024</p>
                             <h4>AI Design at Enterprise Scale</h4>
@@ -1037,7 +1035,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                         </div>
                     </div>
                     <div class="speaking-card">
-                        <img src="/2026/speak-strat.jpeg" alt="STRAT AI Workshop" class="speaking-image">
+                        <img src="speak-strat.jpeg" alt="STRAT AI Workshop" class="speaking-image">
                         <div class="speaking-content">
                             <p class="speaking-event">STRAT AI</p>
                             <h4>Designing AI with Confidence</h4>
@@ -1045,7 +1043,7 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                         </div>
                     </div>
                     <div class="speaking-card">
-                        <img src="/2026/speak-women-in-ai-eoy.png" alt="Women in AI Panel" class="speaking-image">
+                        <img src="speak-women-in-ai-eoy.png" alt="Women in AI Panel" class="speaking-image">
                         <div class="speaking-content">
                             <p class="speaking-event">Women in AI</p>
                             <h4>AI Design Leadership Panel</h4>
@@ -1057,9 +1055,9 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                 <div style="margin-top: 6rem;">
                     <h3>Team & Workshop Moments</h3>
                     <div class="photo-grid">
-                        <img src="/2026/workshop-patterns2025.jpeg" alt="AI Design Workshop">
-                        <img src="/2026/team-halloween.png" alt="Team Building">
-                        <img src="/2026/workshop-largegroup.png" alt="Large Team Gathering">
+                        <img src="workshop-patterns2025.jpeg" alt="AI Design Workshop">
+                        <img src="team-halloween.png" alt="Team Building">
+                        <img src="workshop-largegroup.png" alt="Large Team Gathering">
                     </div>
                 </div>
             </section>
@@ -1105,7 +1103,8 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
                         <div class="contact-info">
                             <div class="contact-item">
                                 <span class="contact-label">Email</span>
-                                <div class="contact-value"><a href="mailto:tamimcb@gmail.com">tamimcb@gmail.com</a></div></div>
+                                <div class="contact-value"><a href="/cdn-cgi/l/email-protection#0773666a6e6a646547606a666e6b2964686a"><span class="__cf_email__" data-cfemail="a3d7c2cecacec0c1e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></div>
+                            </div>
                             <div class="contact-item">
                                 <span class="contact-label">Location</span>
                                 <div class="contact-value">Costa Mesa, California</div>
@@ -1123,4 +1122,60 @@ import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
             </footer>
         </main>
     </div>
-</HtmlLayout2026>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+        
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Active nav
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                  link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

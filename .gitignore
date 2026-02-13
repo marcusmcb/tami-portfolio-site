@@ -2,3 +2,7 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+
+# Large media (keep out of git; host externally if needed)
+2026_new_content/sizzle/
+public/2026/sizzle/

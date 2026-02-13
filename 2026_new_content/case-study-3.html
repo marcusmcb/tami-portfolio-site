@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building AI Design Enablement at Scale | Tami McBride</title>
+    <meta name="description" content="How I designed and launched a comprehensive AI design enablement program that upskilled 500+ designers, improved first-pass quality by 40%, and increased pattern adoption by 80%.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #FEFEFE;
+            --bg-secondary: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --accent-gradient-start: #6366F1;
+            --accent-gradient-end: #EC4899;
+            --accent-primary: #6366F1;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #06B6D4;
+            --accent-warm: #F59E0B;
+            --border-subtle: #E5E7EB;
+            --border-card: #E5E7EB;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0A0B0D;
+            --bg-secondary: #131417;
+            --bg-card: #1A1B1F;
+            --text-primary: #F9FAFB;
+            --text-secondary: #D1D5DB;
+            --text-tertiary: #6B7280;
+            --accent-gradient-start: #818CF8;
+            --accent-gradient-end: #F472B6;
+            --accent-primary: #818CF8;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #22D3EE;
+            --border-subtle: #1F2937;
+            --border-card: #2D3340;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-teal);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .narrow {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.625rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        .case-hero {
+            padding: 6rem 0 4rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .case-hero h1 {
+            max-width: 900px;
+        }
+        
+        .case-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .meta-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .impact-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .impact-badge {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        .content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 3rem;
+        }
+        
+        .bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .bullets li {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .bullets li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-weight: 600;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .outcome-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-teal);
+            text-align: center;
+        }
+        
+        .outcome-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .outcome-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .callout {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--accent-warm);
+            padding: 2rem 2.5rem;
+            border-radius: 0 1rem 1rem 0;
+            margin: 2rem 0;
+        }
+        
+        .callout h4 {
+            color: var(--accent-warm);
+        }
+        
+        .callout p {
+            margin-bottom: 0;
+        }
+        
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quote-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-primary);
+        }
+        
+        .quote-card p {
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .quote-attrib {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .media {
+            margin: 3rem 0;
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--border-card);
+        }
+        
+        .media img {
+            width: 100%;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .caption {
+            font-size: 0.9375rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin: 3rem 0;
+        }
+        
+        .case-nav {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .case-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .nav-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        @media (max-width: 968px) {
+            .outcomes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .case-hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .section-content {
+                padding: 2rem;
+            }
+            
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="back-link">
+                    ← Back to Portfolio
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="case-hero">
+        <div class="container narrow">
+            <h1>Building AI Design Enablement at Scale</h1>
+            <p class="case-subtitle">Scaling capability beyond the core team</p>
+            
+            <div class="case-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">ServiceNow</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">2023 – 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Scope</span>
+                    <span class="meta-value">Organization-wide Enablement</span>
+                </div>
+            </div>
+            
+            <div class="impact-badges">
+                <span class="impact-badge">500+ Upskilled</span>
+                <span class="impact-badge">94% Completion</span>
+                <span class="impact-badge">30% Manager Confidence Uplift</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="container narrow">
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Context & Stakes</h4>
+                    <p>AI design demand outpaced supply. Teams wanted to move fast, but lacked the foundational fluency to do so responsibly. The central AI team risked becoming a bottleneck.</p>
+                    <p><strong>If this failed:</strong> We would either slow everyone down through gatekeeping, or lose control of quality and consistency as teams shipped AI without shared understanding.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>The Real Problem</h4>
+                    <p>Capability didn't scale with demand. If we didn't teach teams how to make good AI decisions, every decision would route through us—creating dependency instead of autonomy.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Vision & North Star</h4>
+                    <p>If we could empower teams with the right knowledge and frameworks, they could own AI decisions confidently, and we could focus on higher-leverage platform-level work.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Strategy & Approach</h4>
+                    <p>The core strategy was to <strong>scale judgment, not just knowledge</strong>. Teams needed more than definitions—they needed decision frameworks, pattern recognition, and confidence to apply responsible AI principles in context.</p>
+                    
+                    <p><strong>Strategic choices:</strong></p>
+                    <ul class="bullets">
+                        <li><strong>Standards as a living system:</strong> Documented patterns while products evolved, treating documentation like a product backlog with tight partner feedback loops.</li>
+                        <li><strong>Practice-first modules:</strong> Learning tied to real delivery moments (design reviews, governance checkpoints) instead of abstract theory.</li>
+                        <li><strong>Role-based tracks:</strong> Tailored content for ICs, managers, and business units—recognizing that evaluating AI work requires different skills than designing it.</li>
+                        <li><strong>Ambassadors as multipliers:</strong> Built a distributed network of advocates who could answer questions, reinforce patterns, and model best practices in their own teams.</li>
+                    </ul>
+                    
+                    <p><strong>Tradeoffs I made:</strong></p>
+                    <ul class="bullets">
+                        <li>Depth vs. adoption: Prioritized foundational fluency over comprehensive coverage to get teams moving faster.</li>
+                        <li>Control vs. speed: Created governance paths for custom solutions instead of blocking innovation with rigid standards.</li>
+                        <li>Perfect docs vs. shipping value: Released incremental improvements continuously rather than waiting for complete documentation.</li>
+                    </ul>
+                    
+                    <p><strong>Alternatives I rejected:</strong></p>
+                    <ul class="bullets">
+                        <li>Office hours-only approach (too reactive, didn't scale)</li>
+                        <li>Approval gates for all AI work (would slow teams unacceptably)</li>
+                        <li>One-and-done training (doesn't stick without reinforcement and practice)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I Shipped</h4>
+                    <p><strong>Multi-tiered enablement program:</strong></p>
+                    <ul class="bullets">
+                        <li><strong>AI Design 101</strong> (foundational training for 350+ Experience Team members globally)</li>
+                        <li><strong>Business-unit workshops</strong> (6 custom sessions tailored to exec-requested needs)</li>
+                        <li><strong>AI Design Leadership</strong> (manager-specific training on evaluating and approving responsible AI)</li>
+                        <li><strong>Quarterly recorded reviews</strong> (ongoing pattern updates shared org-wide)</li>
+                        <li><strong>Self-service resources</strong> (design review checklists, pattern decision aids, prompt guidance, evaluation rubrics)</li>
+                        <li><strong>AI Ambassador program</strong> (distributed support network, biweekly roundtables)</li>
+                        <li><strong>Corporate education partnership</strong> (collaborated with ServiceNow's education team to integrate AI design standards into the company-wide structured learning track, ensuring consistent methods and language across all design education—ultimately transitioning ownership from my team to the education function)</li>
+                    </ul>
+
+                    <div class="callout">
+                        <h4>The hardest part</h4>
+                        <p>Creating and documenting standards while the products were still evolving. Staying ahead was rarely possible, so I built feedback loops with partner teams and treated documentation like a product backlog—shipping iteratively based on what teams needed most urgently.</p>
+                    </div>
+
+                    <div class="media">
+                        <img src="program-structure-diagram.svg" alt="AI Design Enablement Program Structure showing Foundation, Tailored, Leadership, and Ongoing layers with Self-Service Resources and Ambassadors as always-on support">
+                        <div class="caption">The program structure: sequential learning layers (Foundation → Tailored → Leadership → Ongoing) supported by continuous access to self-service resources and Ambassador networks.</div>
+                    </div>
+
+                    <div class="media">
+                        <a href="collab-model.jpg" target="_blank" style="display: block;">
+                            <img src="collab-model-cropped.jpg" alt="Cross-team collaboration model showing workflow phases from Understand through Release, with activities for AI/Scenic teams and Platform/BU teams at each stage" style="cursor: pointer;">
+                        </a>
+                        <div class="caption">Cross-team collaboration model designed to drive early, frequent feedback loops with business units and platform teams—keeping partners informed and accelerating work through shared understanding. <em style="font-size: 0.875rem;">(Click to view full size)</em></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>AI Ambassador Program</h4>
+                    
+                    <img src="aida.png" alt="AI Design Ambassador illustration" style="float: right; width: 280px; margin: 0 0 1.5rem 2rem; border-radius: 0.75rem;">
+                    
+                    <p>I recruited Ambassadors from teams already shipping AI successfully and ran <strong>biweekly roundtables</strong> where they could review in-flight work, discuss new patterns, and influence platform decisions through early feedback. This gave them <strong>early access to guidance and elevated their AI fluency</strong>, while helping us understand how patterns needed to adapt across different team contexts.</p>
+                    
+                    <p>Over time, they became the <strong>first line of support in our community channels</strong>—answering questions, sharing examples, and modeling best practices. This distributed expertise meant my central team could focus on platform-level problems instead of repeated 1:1 pattern coaching.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Cross-Functional Leadership</h4>
+                    <p>Enablement only works when it's aligned with how teams ship. I partnered across Product and Engineering to tie the curriculum to real delivery moments: design reviews, pattern adoption, and governance checkpoints.</p>
+                    <ul class="bullets">
+                        <li><strong>Product:</strong> aligned on the "minimum bar" for AI experiences and where teams could differentiate.</li>
+                        <li><strong>Engineering + applied AI:</strong> translated technical constraints into design guardrails and created shared handoff expectations.</li>
+                        <li><strong>Legal / Responsible AI partners:</strong> ensured guidance supported policy expectations without turning it into fear-driven compliance.</li>
+                        <li><strong>Design leadership:</strong> equipped managers to coach AI work in their own orgs (result: <strong>+30% confidence</strong> in leading AI design initiatives).</li>
+                    </ul>
+                    
+                    <div class="callout">
+                        <h4>How I got buy-in</h4>
+                        <p>Product leadership was initially skeptical—they saw enablement as slowing down innovation in the rush to ship AI products. I reframed it: <strong>every repeated escalation costs 2-3 hours of senior design time. Investing 100 hours in shared fluency would save 300+ hours in redundant 1:1 coaching.</strong> That math changed the conversation. Four months later, Product launched their own enablement program using the same model.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-content">
+                    <h4>Risks, Pushback, and What Almost Derailed It</h4>
+                    <p><strong>Risk:</strong> time and resourcing. The central team was already shipping core AI platform experiences—adding enablement on top risked burnout and delivery delays.</p>
+                    
+                    <p><strong>Response:</strong> I designed enablement to be incremental, modular, and community-powered. We shipped smaller improvements continuously, prioritized the highest-leverage standards first, and relied on tight partner feedback loops to validate what to codify next.</p>
+                    
+                    <p><strong>Pushback:</strong> Early on, teams wanted to move fast with bespoke AI concepts that didn't fit platform patterns. I used research to separate "platform-wide patterns" from "approved custom solutions" and created a governance path that kept innovation moving without fragmenting the platform. Teams could still differentiate—they just needed to follow responsible AI standards and document their rationale.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-content">
+                    <h4>Human Impact and Before/After</h4>
+                    <p><strong>Before:</strong> Teams depended on the AI design group for basic pattern decisions. Every question funneled to us. The support channel was one-way: we answered, they listened.</p>
+                    
+                    <p><strong>After:</strong> The community started answering itself. Ambassadors and close partners shared examples, corrected misconceptions, and helped teams apply patterns to new use cases with confidence. Our support channel became a living knowledge base where expertise was distributed, not centralized.</p>
+
+                    <div class="quote-grid">
+                        <div class="quote-card">
+                            <p>"Great communication, meeting facilitation, visibility into work-in-progress. High value, high return on time investment."</p>
+                            <div class="quote-attrib">Justin Roozeboom</div>
+                        </div>
+                        <div class="quote-card">
+                            <p>"Michelle has been my lifeline."</p>
+                            <div class="quote-attrib">Amanda Chaffee<br><em style="font-size: 0.8rem; font-weight: 400;">(Amanda's team had an Ambassador embedded who could answer questions in real-time, eliminating the need to wait for central team office hours.)</em></div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Outcomes & Impact</h4>
+                    <div class="outcomes-grid">
+                        <div class="outcome-card">
+                            <span class="outcome-value">500+</span>
+                            <div class="outcome-label">Designers upskilled</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">94%</span>
+                            <div class="outcome-label">Program completion rate</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">+40%</span>
+                            <div class="outcome-label">First-pass quality improvement</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem;">Reduced bottlenecks on the central AI team and <strong>improved first-pass quality in design reviews by 40%</strong> as teams gained shared standards, vocabulary, and reusable components. The program also drove a <strong>30% confidence increase among design managers</strong> in their ability to evaluate and approve AI designs—ensuring leadership could guide their teams with the same rigor and shared language. Most importantly, it created an active network of AI design advocates who could teach, reinforce, and evolve the practice across the org.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I'd Do Differently</h4>
+                    <p>I'd keep the same core strategy, but I would change three things:</p>
+                    <ul class="bullets">
+                        <li><strong>Secure executive sponsorship earlier:</strong> to protect time, reinforce that enablement is product leverage, and reduce "optional" participation friction.</li>
+                        <li><strong>Instrument learning to business moments:</strong> connect enablement signals to downstream outcomes (review turnaround, escalations, pattern adoption) instead of relying mostly on completion + confidence metrics.</li>
+                        <li><strong>Design the operating model sooner:</strong> clarify ownership rotation and recognition so enablement work is visible, rewarded leadership behavior, not invisible "extra" work.</li>
+                    </ul>
+                    
+                    <div class="callout">
+                        <h4>Personal learning</h4>
+                        <p>I underestimated how much change management mattered. The content was necessary, but creating rituals, incentives, and leadership alignment is what made it stick.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <h4>Leadership Takeaway</h4>
+                <p>I scale impact by turning ambiguity into systems: standards, rituals, and communities that make quality repeatable and teams more autonomous. This case demonstrates my ability to build infrastructure that outlasts individual contributions.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <nav class="case-nav">
+        <div class="container">
+            <div class="case-nav-content">
+                <a href="case-study-2.html" class="nav-link">
+                    <div>
+                        <div class="nav-label">← Previous</div>
+                        <div class="nav-title">AI Experience Strategy & Governance</div>
+                    </div>
+                </a>
+                <a href="index.html" class="nav-link">
+                    <div style="text-align: right;">
+                        <div class="nav-label">Back to →</div>
+                        <div class="nav-title">Portfolio Home</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+        
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>

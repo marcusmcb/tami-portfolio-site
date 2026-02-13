@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding & Scaling the AI Platform Design Organization | Tami McBride</title>
+    <meta name="description" content="How I built and scaled ServiceNow's AI Platform Design organization from 15 to 62 people while maintaining 88% engagement and powering 200M+ AI assists.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #FEFEFE;
+            --bg-secondary: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --accent-gradient-start: #6366F1;
+            --accent-gradient-end: #EC4899;
+            --accent-primary: #6366F1;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #06B6D4;
+            --accent-warm: #F59E0B;
+            --border-subtle: #E5E7EB;
+            --border-card: #E5E7EB;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0A0B0D;
+            --bg-secondary: #131417;
+            --bg-card: #1A1B1F;
+            --text-primary: #F9FAFB;
+            --text-secondary: #D1D5DB;
+            --text-tertiary: #6B7280;
+            --accent-gradient-start: #818CF8;
+            --accent-gradient-end: #F472B6;
+            --accent-primary: #818CF8;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #22D3EE;
+            --border-subtle: #1F2937;
+            --border-card: #2D3340;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-teal);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .narrow {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.625rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        /* Hero */
+        .case-hero {
+            padding: 6rem 0 4rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .case-hero h1 {
+            max-width: 900px;
+        }
+        
+        .case-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .meta-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .impact-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .impact-badge {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        /* Content Sections */
+        .content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 3rem;
+        }
+        
+        /* Images */
+        .images-section {
+            margin: 4rem 0;
+        }
+        
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .image-full {
+            grid-column: span 2;
+        }
+        
+        .image-wrapper {
+            position: relative;
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            margin-top: 1rem;
+        }
+        
+        /* Growth Viz */
+        .growth-viz {
+            background: var(--bg-secondary);
+            border-radius: 1.25rem;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .viz-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .viz-badge {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: white;
+            padding: 0.375rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+        
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .growth-arrow {
+            position: absolute;
+            top: 6rem;
+            left: 2rem;
+            right: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-cyan));
+            opacity: 0.4;
+        }
+        
+        .growth-arrow::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--accent-cyan);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        
+        .phase {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .phase-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .phase-date {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+        
+        .dots-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 12px);
+            gap: 6px;
+            justify-content: center;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+        }
+        
+        .viz-divider {
+            border-top: 1px solid var(--border-subtle);
+            margin: 3rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        /* Outcomes */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .outcome-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-teal);
+            text-align: center;
+        }
+        
+        .outcome-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .outcome-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        /* Callout */
+        .callout {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--accent-warm);
+            padding: 2rem 2.5rem;
+            border-radius: 0 1rem 1rem 0;
+            margin: 3rem 0;
+        }
+        
+        .callout h4 {
+            color: var(--accent-warm);
+        }
+        
+        .callout p {
+            margin: 0;
+        }
+        
+        /* Navigation */
+        .case-nav {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .case-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .nav-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .phases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .images-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .outcomes-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .case-hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .section-content {
+                padding: 2rem;
+            }
+            
+            .growth-viz {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="back-link">
+                    ← Back to Portfolio
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="case-hero">
+        <div class="container narrow">
+            <h1>Founding & Scaling the AI Platform Design Organization</h1>
+            <p class="case-subtitle">Building the system that builds the product</p>
+            
+            <div class="case-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">ServiceNow</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Oct 2022 – Mar 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Sr. Manager, AI Product Design</span>
+                </div>
+            </div>
+            
+            <div class="impact-badges">
+                <span class="impact-badge">4× Team Growth</span>
+                <span class="impact-badge">88% Employee Engagement</span>
+                <span class="impact-badge">200M+ AI Assists</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container narrow">
+            
+            <!-- Context -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>Context & Stakes</h4>
+                    <p>ServiceNow's AI ambition accelerated rapidly with generative and agentic AI, but design ownership, decision rights, and operating models were fragmented. Without a clear platform design function, teams risked shipping inconsistent, untrusted AI experiences that would stall adoption and erode confidence.</p>
+                    <p><strong>If this failed:</strong> AI would scale faster than trust, turning innovation into fragmentation and slowing adoption at the moment it mattered most.</p>
+                </div>
+            </div>
+            
+            <!-- The Real Problem -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>The Real Problem</h4>
+                    <p>The challenge was not hiring designers or shipping features. It was the absence of a durable system that could translate AI ambition into repeatable, high-quality outcomes across products, teams, and time.</p>
+                </div>
+            </div>
+            
+            <!-- Vision & Strategy -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>Vision & North Star</h4>
+                    <p>I believed clarity and humanity were competitive advantages. If we could give teams shared direction, strong principles, and psychological safety, we could move faster and ship AI responsibly without slowing innovation.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Strategy & Approach</h4>
+                    <p>Founded a centralized AI Platform Design organization with clear mandate and scope. Designed the org around leverage: frameworks, patterns, governance, and enablement. Invested early in leadership roles and cross-functional trust, not just execution capacity. Explicitly deprioritized bespoke design work in favor of scalable systems.</p>
+                </div>
+            </div>
+            
+            <!-- Team Photos -->
+            <div class="images-section">
+                <h3>Building the Team</h3>
+                <div class="images-grid">
+                    <div class="image-wrapper image-full">
+                        <img src="team-group-dinner.jpg" alt="AI Platform Design Team Gathering">
+                        <p class="image-caption">AI Platform Design team gathering — growing from 15 to 62 people</p>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="workshop-teamcharter.jpeg" alt="Design Workshop" style="height: 280px; object-fit: cover;">
+                        <p class="image-caption">Collaborative workshop session</p>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="team-cookingclass.jpeg" alt="Team Collaboration" style="height: 280px; object-fit: cover;">
+                        <p class="image-caption">Team building and collaboration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Growth Visualization -->
+            <div class="growth-viz">
+                <div class="viz-header">
+                    <h3>Organization Growth</h3>
+                    <span class="viz-badge">4× Scale</span>
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 3rem;">Oct 2022 – Mar 2025 • 29 months</p>
+                
+                <div class="phases-grid">
+                    <div class="growth-arrow"></div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">15</div>
+                        <div class="phase-label">Foundation</div>
+                        <div class="phase-date">Oct 2022</div>
+                        <div class="dots-grid">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">28</div>
+                        <div class="phase-label">Rapid Scale</div>
+                        <div class="phase-date">Apr 2023</div>
+                        <div class="dots-grid">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">45</div>
+                        <div class="phase-label">Expansion</div>
+                        <div class="phase-date">Oct 2023</div>
+                        <div class="dots-grid">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">62</div>
+                        <div class="phase-label">Maturity</div>
+                        <div class="phase-date">Mar 2025</div>
+                        <div class="dots-grid">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="viz-divider"></div>
+                
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-value">88%</div>
+                        <div class="stat-label">Employee Engagement</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Leadership Roles Added</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Product Areas Supported</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What I Shipped -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I Shipped</h4>
+                    <p>Built and scaled the AI Platform Design org 4× over two years, with rapid initial scale in the first six months by borrowing five top designers from partner teams to augment a core team of six. Established platform-wide AI experience ownership. Shipped shared AI frameworks, patterns, and governance models that evolved rapidly as the technology changed and we learned in real time.</p>
+                </div>
+            </div>
+            
+            <!-- Outcomes & Impact -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>Outcomes & Impact</h4>
+                    <div class="outcomes-grid">
+                        <div class="outcome-card">
+                            <span class="outcome-value">4×</span>
+                            <div class="outcome-label">Team scale in 2 years</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">88%</span>
+                            <div class="outcome-label">Engagement during change</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">200M+</span>
+                            <div class="outcome-label">AI assists powered</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem;">Supported the fastest-growing product family in company history. Enabled hundreds of millions of user-accepted AI-assisted actions tied to significant annualized business impact.</p>
+                </div>
+            </div>
+            
+            <!-- What I'd Do Differently -->
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I'd Do Differently</h4>
+                    <p>I would invest earlier in rotating enablement ownership across senior ICs, supported by clearer executive sponsorship and shared visibility, to reduce dependency on a small core team and accelerate leadership development.</p>
+                </div>
+            </div>
+            
+            <!-- Leadership Takeaway -->
+            <div class="callout">
+                <h4>Leadership Takeaway</h4>
+                <p>This case study shows how I build the system that builds the product—designing organizations, not just experiences.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Case Study Navigation -->
+    <nav class="case-nav">
+        <div class="container">
+            <div class="case-nav-content">
+                <a href="index.html" class="nav-link">
+                    <div>
+                        <div class="nav-label">← Back to</div>
+                        <div class="nav-title">All Case Studies</div>
+                    </div>
+                </a>
+                <a href="case-study-2.html" class="nav-link">
+                    <div style="text-align: right;">
+                        <div class="nav-label">Next Case Study →</div>
+                        <div class="nav-title">AI Experience Strategy & Governance</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+        
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', function() {{
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }});
+        
+        function updateThemeIcon(theme) {{
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }}
+    </script>
+</body>
+</html>

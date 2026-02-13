@@ -1,0 +1,1024 @@
+---
+import HtmlLayout2026 from '../layouts/HtmlLayout2026.astro';
+---
+
+<HtmlLayout2026
+  title="Defining Enterprise AI Experience Strategy & Governance | Tami McBride"
+    description="How I created enterprise-wide AI experience principles and frameworks adopted across 20+ teams, reducing incidents by 14% and accelerating fulfillment by 10%."
+  
+>
+  <Fragment slot="head">
+        <style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #FEFEFE;
+            --bg-secondary: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --accent-gradient-start: #6366F1;
+            --accent-gradient-end: #EC4899;
+            --accent-primary: #6366F1;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #06B6D4;
+            --accent-warm: #F59E0B;
+            --border-subtle: #E5E7EB;
+            --border-card: #E5E7EB;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0A0B0D;
+            --bg-secondary: #131417;
+            --bg-card: #1A1B1F;
+            --text-primary: #F9FAFB;
+            --text-secondary: #D1D5DB;
+            --text-tertiary: #6B7280;
+            --accent-gradient-start: #818CF8;
+            --accent-gradient-end: #F472B6;
+            --accent-primary: #818CF8;
+            --accent-teal: #14B8A6;
+            --accent-cyan: #22D3EE;
+            --border-subtle: #1F2937;
+            --border-card: #2D3340;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-teal);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .narrow {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.625rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        .case-hero {
+            padding: 6rem 0 4rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .case-hero h1 {
+            max-width: 900px;
+        }
+        
+        .case-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .meta-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .impact-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .impact-badge {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        .content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 3rem;
+        }
+        
+        .visual-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1.25rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .visual-card h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .visual-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .outcome-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-teal);
+            text-align: center;
+        }
+        
+        .outcome-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .outcome-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1));
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .principle-card {
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 2px solid var(--border-card);
+            transition: all 0.3s ease;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .principle-light {
+            background: linear-gradient(135deg, white, #F9FAFB);
+        }
+        
+        .principle-dark {
+            background: linear-gradient(135deg, #0F766E, #0D5D56);
+            color: white;
+        }
+        
+        .principle-header {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .principle-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .principle-number-light {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
+            color: white;
+        }
+        
+        .principle-number-dark {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .principle-title {
+            font-size: 1.75rem;
+            font-family: var(--font-serif);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+        
+        .principle-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .principle-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .principle-light .principle-text {
+            color: var(--text-secondary);
+        }
+        
+        .principle-dark .principle-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .callout {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--accent-warm);
+            padding: 2rem 2.5rem;
+            border-radius: 0 1rem 1rem 0;
+            margin: 3rem 0;
+        }
+        
+        .callout h4 {
+            color: var(--accent-warm);
+        }
+        
+        .callout p {
+            margin: 0;
+        }
+        
+        .case-nav {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .case-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+        
+        .nav-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .checklist-preview {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .checklist-preview:hover {
+            transform: scale(1.02);
+        }
+        
+        .checklist-preview img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .checklist-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: white;
+        }
+        
+        .checklist-overlay p {
+            font-weight: 600;
+            margin: 0;
+            color: white;
+        }
+        
+        @media (max-width: 968px) {
+            .outcomes-grid,
+            .stats-grid,
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .case-hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .section-content,
+            .visual-card {
+                padding: 2rem;
+            }
+        }
+    
+        /* Accordion Styles */
+        details {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        details:hover {
+            border-color: var(--accent-teal);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        details[open] {
+            border-color: var(--accent-teal);
+        }
+        
+        summary {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            list-style: none;
+            background: var(--bg-secondary);
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        summary:hover {
+            background: var(--bg-card);
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: '▼';
+            font-size: 1.25rem;
+            color: var(--accent-teal);
+            transition: transform 0.3s ease;
+        }
+        
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+        
+        .accordion-content {
+            padding: 2rem;
+        }
+    </style>
+  </Fragment>
+
+  <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="back-link">
+                    ← Back to Portfolio
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="case-hero">
+        <div class="container narrow">
+            <h1>Defining Enterprise AI Experience Strategy & Governance</h1>
+            <p class="case-subtitle">Making AI trustworthy by design, not by review</p>
+            
+            <div class="case-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">ServiceNow</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">2022 – 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Scope</span>
+                    <span class="meta-value">Platform-wide AI Governance</span>
+                </div>
+            </div>
+            
+            <div class="impact-badges">
+                <span class="impact-badge">20+ Teams Adopted</span>
+                <span class="impact-badge">+40% First-Pass Quality</span>
+                <span class="impact-badge">10% Faster Fulfillment</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <div class="container narrow">
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Context & Stakes</h4>
+                    <p>AI features were launching across many product areas, each moving fast but interpreting responsibility, trust, and user experience differently. The risk was fragmented AI behavior, inconsistent trust signals, and legal or reputational exposure.</p>
+                    <p><strong>If this failed:</strong> Speed would amplify risk, forcing reactive controls that slowed teams and undermined confidence in AI across the platform.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>The Real Problem</h4>
+                    <p>Teams lacked shared decision frameworks. Without them, speed created risk instead of advantage.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Vision & North Star</h4>
+                    <p>AI should be trustworthy by design, not by review. If we embedded clarity into how teams decided, we could scale AI safely without slowing teams down.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Strategy & Approach</h4>
+                    <p>Defined enterprise AI experience principles and decision frameworks. Partnered deeply with product, legal, and engineering leadership. Focused governance on enablement over control. Said no to one-off exceptions that weakened consistency.</p>
+                </div>
+            </div>
+            
+            <!-- THE FRAMEWORK IN PRACTICE -->
+            <div class="section">
+                <h3>The Framework in Practice</h3>
+                
+                <!-- Hub & Spoke Model -->
+                <details open>
+                    <summary>
+                        <div>
+                            <div>Hub & Spoke Governance Model</div>
+                            <div class="accordion-subtitle">Centralized principles enabling 20+ teams and 500+ designers</div>
+                        </div>
+                    </summary>
+                    <div class="accordion-content">
+                    
+                    <svg width="100%" height="500" viewBox="0 0 900 500" style="max-width: 900px; margin: 0 auto; display: block;">
+                        <!-- Background circles for depth -->
+                        <circle cx="450" cy="250" r="200" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                        <circle cx="450" cy="250" r="140" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+                        
+                        <!-- Connection lines -->
+                        <line x1="450" y1="250" x2="650" y2="250" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="623" y2="150" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="536" y2="76" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="364" y2="76" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="277" y2="150" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="250" y2="250" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="277" y2="350" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="364" y2="424" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="536" y2="424" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="623" y2="350" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="700" y2="177" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="700" y2="323" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="200" y2="177" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="200" y2="323" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="610" y2="90" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="610" y2="410" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="290" y2="90" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="290" y2="410" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="450" y2="50" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        <line x1="450" y1="250" x2="450" y2="450" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+                        
+                        <!-- Team circles (20+) - no labels -->
+                        <circle cx="650" cy="250" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="650" cy="250" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="623" cy="150" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="623" cy="150" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="536" cy="76" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="536" cy="76" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="364" cy="76" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="364" cy="76" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="277" cy="150" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="277" cy="150" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="250" cy="250" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="250" cy="250" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="277" cy="350" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="277" cy="350" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="364" cy="424" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="364" cy="424" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="536" cy="424" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="536" cy="424" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="623" cy="350" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="623" cy="350" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="700" cy="177" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="700" cy="177" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="700" cy="323" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="700" cy="323" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="200" cy="177" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="200" cy="177" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="200" cy="323" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="200" cy="323" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="610" cy="90" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="610" cy="90" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="610" cy="410" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="610" cy="410" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="290" cy="90" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="290" cy="90" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="290" cy="410" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="290" cy="410" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="450" cy="50" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="450" cy="50" r="25" fill="#F0FDFA"/>
+                        
+                        <circle cx="450" cy="450" r="35" fill="white" stroke="#14B8A6" stroke-width="3"/>
+                        <circle cx="450" cy="450" r="25" fill="#F0FDFA"/>
+                        
+                        <!-- Center hub with gradient and glow -->
+                        <defs>
+                            <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0F766E"/>
+                                <stop offset="100%" style="stop-color:#06B6D4"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <circle cx="450" cy="250" r="100" fill="url(#hubGrad)" filter="url(#glow)"/>
+                        <text x="450" y="235" text-anchor="middle" font-size="22" fill="white" font-weight="700" font-family="var(--font-sans)">AI Platform</text>
+                        <text x="450" y="258" text-anchor="middle" font-size="22" fill="white" font-weight="700" font-family="var(--font-sans)">Design</text>
+                        <text x="450" y="278" text-anchor="middle" font-size="18" fill="white" opacity="0.95" font-family="var(--font-sans)">Governance</text>
+                    </svg>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">Product Teams</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Designers Supported</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Framework Adoption</div>
+                        </div>
+                                    </div>
+                </details>
+                
+                <!-- AI Design Principles -->
+                <details>
+                    <summary>
+                        <div>
+                            <div>AI Design Principles</div>
+                            <div class="accordion-subtitle">Four pillars guiding all AI experience decisions</div>
+                        </div>
+                    </summary>
+                    <div class="accordion-content">
+                    
+                    <div class="principles-grid">
+                        <!-- Pillar 1 -->
+                        <div class="principle-card principle-light">
+                            <div class="principle-header">
+                                <div class="principle-number principle-number-light">1</div>
+                                <h3 class="principle-title">Human-Centered</h3>
+                            </div>
+                            <p class="principle-text">We empower customers to choose when and how to use AI, with clear identification, guidance, and responsible deployment support.</p>
+                        </div>
+                        
+                        <!-- Pillar 2 -->
+                        <div class="principle-card principle-dark">
+                            <div class="principle-header">
+                                <div class="principle-number principle-number-dark">2</div>
+                                <h3 class="principle-title">Inclusive</h3>
+                            </div>
+                            <p class="principle-text">We design AI to reduce complexity and reflect diverse users, testing broadly to create equitable, accessible, and human-advancing experiences.</p>
+                        </div>
+                        
+                        <!-- Pillar 3 -->
+                        <div class="principle-card principle-dark">
+                            <div class="principle-header">
+                                <div class="principle-number principle-number-dark">3</div>
+                                <h3 class="principle-title">Transparent</h3>
+                            </div>
+                            <p class="principle-text">We clearly explain how AI works, its limits, and intended use, providing documentation and model clarity that enables informed choices.</p>
+                        </div>
+                        
+                        <!-- Pillar 4 -->
+                        <div class="principle-card principle-light">
+                            <div class="principle-header">
+                                <div class="principle-number principle-number-light">4</div>
+                                <h3 class="principle-title">Accountable</h3>
+                            </div>
+                            <p class="principle-text">We uphold trust through governance, oversight, and continuous improvement, partnering with experts to ensure responsible and accountable AI operations.</p>
+                        </div>
+                                        </div>
+                </details>
+                
+                <!-- Decision Framework -->
+                <details>
+                    <summary>
+                        <div>
+                            <div>The Right AI Experience for the Moment</div>
+                            <div class="accordion-subtitle">Assist, Accelerate, Act framework with guardrails</div>
+                        </div>
+                    </summary>
+                    <div class="accordion-content">
+                    
+                    <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 1rem; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">The Core Idea</h3>
+                        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary); margin: 0;">
+                            AI should match the user's moment — help them think, help them execute, or act on their behalf.
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                        <!-- Assist -->
+                        <div style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid var(--accent-teal);">
+                            <h4 style="color: var(--accent-teal); margin-bottom: 1rem;">Assist</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 1rem; line-height: 1.7;">
+                                When the goal is unclear or decisions require reasoning. AI clarifies, guides, and explains.
+                            </p>
+                        </div>
+                        
+                        <!-- Accelerate -->
+                        <div style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid var(--accent-cyan);">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Accelerate</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 1rem; line-height: 1.7;">
+                                When the task is known and structured. AI streamlines execution inside the workflow.
+                            </p>
+                        </div>
+                        
+                        <!-- Act -->
+                        <div style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid var(--accent-primary);">
+                            <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Act</h4>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: 1rem; line-height: 1.7;">
+                                When autonomy is appropriate and permissioned. AI proactively triggers workflows — within guardrails.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-warm); padding: 2rem; border-radius: 0 1rem 1rem 0; margin-bottom: 2rem;">
+                        <h4 style="color: var(--accent-warm); margin-bottom: 1rem;">The Guardrail (Non-Negotiable)</h4>
+                        <p style="color: var(--text-secondary); margin: 0; font-size: 1.0625rem; line-height: 1.8;">
+                            High-stakes actions are always hybrid. AI explains. Humans confirm.
+                        </p>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 1rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">The Takeaway</h3>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 1.0625rem; line-height: 2;">
+                            <li style="margin-bottom: 0.75rem;"><strong style="color: var(--text-primary);">Interaction</strong> is chosen by ambiguity.</li>
+                            <li style="margin-bottom: 0.75rem;"><strong style="color: var(--text-primary);">Autonomy</strong> is chosen by risk.</li>
+                            <li><strong style="color: var(--text-primary);">Trust</strong> is preserved through transparency and control.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                </details>
+                <!-- AI Design Checklist -->
+                <details>
+                    <summary>
+                        <div>
+                            <div>AI Design Checklist</div>
+                            <div class="accordion-subtitle">Comprehensive checklist ensuring responsible AI implementation across all teams</div>
+                        </div>
+                    </summary>
+                    <div class="accordion-content">
+                            <a href="/2026/ai-design-checklist.jpg" target="_blank" class="checklist-preview">
+                        <img src="/2026/ai-design-checklist.jpg" alt="AI Design Checklist">
+                        <div >
+                            <p></p>
+
+                    </a>
+                    </div>
+                    
+                   
+                    
+                    
+                </div>
+               
+                </details>
+                
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I Shipped</h4>
+                    <p>AI experience principles and evaluation criteria. Reusable governance frameworks adopted across 20+ teams. Clear guidance for conversational vs non-conversational AI. Decision trees and checklists that made complex decisions actionable.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Adopted & Adapted</h4>
+                    <p>Demo videos of platform experiences shaped by my team, crafted by business units to serve their unique customer needs.</p>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 1.0625rem; line-height: 2;">
+                            <li style="margin-bottom: 0.75rem;"><strong style="color: var(--text-primary);"><a href="https://drive.google.com/file/d/1mKhII7x8JSQT7fPq8pEpKu_btnOSfo-4/view?usp=sharing" target="_blank">Agentic AI + IT Teams</a></li>
+                            <li style="margin-bottom: 0.75rem;"><strong style="color: var(--text-primary);"><a href="https://drive.google.com/file/d/1o6XVb3ssnwD-xGt7vvRByHrZZu9v0Df9/view?usp=sharing" target="_blank">Agentic AI + Retail and Hospitality Teams</a></li>
+                            <li style="margin-bottom: 0.75rem;"><strong style="color: var(--text-primary);"><a href="https://drive.google.com/file/d/15Hrzocnpd3kyaPthwthwnXLzxOmY39n-/view?usp=sharing" target="_blank">ServiceNow Sizzle</a></li>
+                        </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>Outcomes & Impact</h4>
+                    <div class="outcomes-grid">
+                        <div class="outcome-card">
+                            <span class="outcome-value">20+</span>
+                            <div class="outcome-label">Teams adopted frameworks</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">14%</span>
+                            <div class="outcome-label">Fewer Tier-1 incidents</div>
+                        </div>
+                        <div class="outcome-card">
+                            <span class="outcome-value">10%</span>
+                            <div class="outcome-label">Faster fulfillment</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem;">Accelerated AI shipping velocity with fewer late-stage escalations. Improved consistency and trust across AI experiences. Reduced ambiguity for teams working in high-risk areas.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <h4>What I'd Do Differently</h4>
+                    <p>I would work much earlier and more closely with engineering using rapid prototyping to see true model output sooner, bringing data science and ML partners in at the right moments. This would be supported by executive-backed roadshows and an AI Design Ambassador network to spread these process shifts faster across teams.</p>
+                    
+                    <h4 style="margin-top: 2rem;">What This Looked Like in Practice</h4>
+                    <p style="margin-bottom: 0;">Weekly rapid prototypes with real model outputs instead of mocked states. Live design reviews with engineering partners, with ML and data science present when model behavior shaped experience decisions. Early executive walkthroughs to align on tradeoffs before teams scaled.</p>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <h4>Leadership Takeaway</h4>
+                <p>This case demonstrates my ability to turn AI risk into an actionable strategy that teams actually use—not theoretical principles, but practical frameworks that accelerate shipping while increasing trust.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <nav class="case-nav">
+        <div class="container">
+            <div class="case-nav-content">
+                <a href="/case-study-1" class="nav-link">
+                    <div>
+                        <div class="nav-label">← Previous</div>
+                        <div class="nav-title">Founding & Scaling AI Platform Design</div>
+                    </div>
+                </a>
+                <a href="/case-study-3" class="nav-link">
+                    <div style="text-align: right;">
+                        <div class="nav-label">Next →</div>
+                        <div class="nav-title">AI Design Enablement at Scale</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+</HtmlLayout2026>

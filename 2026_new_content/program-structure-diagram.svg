@@ -1,0 +1,132 @@
+<svg viewBox="0 0 900 680" xmlns="http://www.w3.org/2000/svg">
+    <!-- Define gradients and filters -->
+    <defs>
+        <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#818CF8;stop-opacity:1" />
+        </linearGradient>
+        
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+                <feFuncA type="linear" slope="0.2"/>
+            </feComponentTransfer>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Title -->
+    <text x="450" y="30" text-anchor="middle" font-size="24" font-weight="600" fill="#1A1A1A" font-family="system-ui, -apple-system, sans-serif">
+        AI Design Enablement Program Structure
+    </text>
+    
+    <!-- Foundation Layer -->
+    <g filter="url(#shadow)">
+        <rect x="150" y="80" width="600" height="100" rx="12" fill="url(#tealGradient)"/>
+        <text x="450" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            FOUNDATION
+        </text>
+        <text x="450" y="145" text-anchor="middle" font-size="15" font-weight="500" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            AI Design 101
+        </text>
+        <text x="450" y="165" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+            350+ Experience Team members globally
+        </text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 450 180 L 450 210" stroke="#6B7280" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Tailored Layer -->
+    <g filter="url(#shadow)">
+        <rect x="150" y="210" width="600" height="100" rx="12" fill="url(#tealGradient)"/>
+        <text x="450" y="245" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            TAILORED
+        </text>
+        <text x="450" y="275" text-anchor="middle" font-size="15" font-weight="500" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            Business-Unit Workshops
+        </text>
+        <text x="450" y="295" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+            6 custom sessions for specific team needs
+        </text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 450 310 L 450 340" stroke="#6B7280" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Leadership Layer -->
+    <g filter="url(#shadow)">
+        <rect x="150" y="340" width="600" height="100" rx="12" fill="url(#tealGradient)"/>
+        <text x="450" y="375" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            LEADERSHIP
+        </text>
+        <text x="450" y="405" text-anchor="middle" font-size="15" font-weight="500" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            AI Design Leadership for Managers
+        </text>
+        <text x="450" y="425" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+            Evaluating and approving responsible AI
+        </text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 450 440 L 450 470" stroke="#6B7280" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Ongoing Layer -->
+    <g filter="url(#shadow)">
+        <rect x="150" y="470" width="600" height="100" rx="12" fill="url(#tealGradient)"/>
+        <text x="450" y="505" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            ONGOING
+        </text>
+        <text x="450" y="535" text-anchor="middle" font-size="15" font-weight="500" fill="white" font-family="system-ui, -apple-system, sans-serif">
+            Quarterly Recorded Reviews
+        </text>
+        <text x="450" y="555" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+            Pattern updates shared org-wide
+        </text>
+    </g>
+    
+    <!-- Always-On Support Section -->
+    <g>
+        <!-- Left side: Self-Service Resources -->
+        <g filter="url(#shadow)">
+            <rect x="50" y="600" width="380" height="60" rx="10" fill="url(#purpleGradient)"/>
+            <text x="240" y="625" text-anchor="middle" font-size="15" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+                SELF-SERVICE RESOURCES
+            </text>
+            <text x="240" y="645" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+                Checklists, templates, patterns, rubrics
+            </text>
+        </g>
+        
+        <!-- Right side: Ambassadors -->
+        <g filter="url(#shadow)">
+            <rect x="470" y="600" width="380" height="60" rx="10" fill="url(#purpleGradient)"/>
+            <text x="660" y="625" text-anchor="middle" font-size="15" font-weight="700" fill="white" font-family="system-ui, -apple-system, sans-serif">
+                AI DESIGN AMBASSADORS
+            </text>
+            <text x="660" y="645" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)" font-family="system-ui, -apple-system, sans-serif">
+                Distributed support network
+            </text>
+        </g>
+    </g>
+    
+    <!-- Connecting lines from bottom to always-on support -->
+    <path d="M 300 570 L 240 600" stroke="#9CA3AF" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+    <path d="M 600 570 L 660 600" stroke="#9CA3AF" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+    
+    <!-- Arrow marker definition -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+            <polygon points="0 0, 10 5, 0 10" fill="#6B7280" />
+        </marker>
+    </defs>
+</svg>
