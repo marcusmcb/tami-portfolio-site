@@ -5,7 +5,7 @@ const workspaceRoot = path.resolve(process.cwd());
 const sourceDir = path.join(workspaceRoot, '2026_new_content');
 const outPagesDir = path.join(workspaceRoot, 'src', 'pages');
 
-const EMAIL = 'tamimcb@gmail.com';
+const EMAIL = 'tami.mcbride.design@gmail.com';
 
 const routeRewrites = new Map([
   ['index.html', '/'],
