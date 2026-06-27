@@ -5,7 +5,7 @@ const ROOT = path.resolve(process.cwd());
 const IN_DIR = path.join(ROOT, '2026_new_content');
 const OUT_DIR = path.join(ROOT, 'src', 'pages');
 
-const EMAIL = 'tamimcb@gmail.com';
+const EMAIL = 'tami.mcbride.design@gmail.com';
 
 function extractFirst(regex, text, label) {
   const match = text.match(regex);
